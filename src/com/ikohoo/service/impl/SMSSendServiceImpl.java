@@ -159,7 +159,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 		sb.delete(sb.length() - 3, sb.length());
 
 		SMSSendParams msg = new SMSSendParams();
-		msg.setChannel(SMSSendParams.channelSMS);
+		msg.setChannel(config.getChannal()); //(SMSSendParams.channelSMS);
 		msg.setMsg(sb.toString());
 		// System.out.println("send one packet: " + sb.toString());
 		logger.info("send one packet: " + sb.toString());
@@ -198,7 +198,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 
 			msg.setDestNo(ss.getPhone());
 			msg.setMsg(ss.getContent());
-			msg.setChannel(SMSSendParams.channelSMS);
+			msg.setChannel(config.getChannal()); //(SMSSendParams.channelSMS);
 
 			String sendRst;
 			try {
@@ -402,7 +402,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 			try {
 				for (SMSSendParams ssp : yxList) {
 					logger.info("sending yunxin sms: " + ssp.toString());
-					sendSms.send(ssp, "sendMes");
+					sendSms.send(ssp, SendSMSCF.sendMes);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
