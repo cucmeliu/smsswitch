@@ -8,3 +8,6 @@
 2015-10-20 22:47:13,697 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
 2015-10-20 22:48:29,585 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
 2015-10-20 22:48:31,415 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
+2015-10-21 23:45:44,191 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
+2015-10-21 23:53:08,200 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
+2015-10-21 23:54:49,436 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException

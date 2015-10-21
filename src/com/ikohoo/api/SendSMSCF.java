@@ -56,6 +56,8 @@ public class SendSMSCF {
 	 * @throws Exception 
 	 */
 	public String send(SMSSendParams msg, String cmd) throws Exception {
+		if (null == msg)
+			return "";
 		url = config.getUrl() +  cmd;//"SendMsg";
 		
 		String str = "";

@@ -3,6 +3,8 @@ package com.ikohoo.service.impl;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -15,6 +17,7 @@ import com.ikohoo.domain.SMSSendBean;
 import com.ikohoo.domain.SMSSendParams;
 import com.ikohoo.factory.BasicFactory;
 import com.ikohoo.service.SMSSendService;
+import com.ikohoo.util.SMSSortByContent;
 import com.ikohoo.util.SMSUtils;
 
 public class SMSSendServiceImpl implements SMSSendService {
@@ -159,7 +162,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 		sb.delete(sb.length() - 3, sb.length());
 
 		SMSSendParams msg = new SMSSendParams();
-		msg.setChannel(config.getChannal()); //(SMSSendParams.channelSMS);
+		msg.setChannel(config.getChannal()); // (SMSSendParams.channelSMS);
 		msg.setMsg(sb.toString());
 		// System.out.println("send one packet: " + sb.toString());
 		logger.info("send one packet: " + sb.toString());
@@ -198,7 +201,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 
 			msg.setDestNo(ss.getPhone());
 			msg.setMsg(ss.getContent());
-			msg.setChannel(config.getChannal()); //(SMSSendParams.channelSMS);
+			msg.setChannel(config.getChannal()); // (SMSSendParams.channelSMS);
 
 			String sendRst;
 			try {
@@ -290,6 +293,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 	 * 
 	 * @param list
 	 * @return
+	 * @deprecated
 	 */
 	private List<SMSSendParams> parseYunXinSmsList(List<SMSSendBean> list) {
 		List<SMSSendParams> ret = new ArrayList<SMSSendParams>();
@@ -298,18 +302,22 @@ public class SMSSendServiceImpl implements SMSSendService {
 			return null;
 
 		// 简化，连续的相同内容短信作为一条，不连续的即使内容相同也当成几条处理
-		int count = 0;
-		Boolean started = false;
+		// int count = 0;
+		// Boolean started = false;
 		String msg = null;
 		SMSSendBean ss;
 		SMSSendParams ssp = null;
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = null;
 		// SMSSendBean lastIt = null;
 
 		// 拼相同内容的包
 		while (list.size() > 0) {
+			int count = 0;
+			Boolean started = false;
+			sb = new StringBuilder("");
 			for (Iterator<SMSSendBean> it = list.iterator(); it.hasNext();) {
 				ss = it.next();
+				// System.out.println(" parse content pack: " + ss.toString());
 				if (!started || count > config.getSendMax()) {
 					count = 0;
 					started = true;
@@ -321,16 +329,18 @@ public class SMSSendServiceImpl implements SMSSendService {
 					ssp.setMsg(msg);
 					ssp.setChannel(config.getChannal());
 					sb.append(ss.getPhone()).append(",");
+					it.remove();
+					count++;
 
 				} else {
 					if (ss.getContent().equals(msg)) {
 						sb.append(ss.getPhone()).append(",");
+						it.remove();
+						count++;
 					}
 				}
-				it.remove();
-				count++;
 			}
-
+			// System.out.println(".......one pack........");
 			// 去掉最后的逗号
 			sb.delete(sb.length() - 1, sb.length());
 			ssp.setDestNo(sb.toString());
@@ -344,6 +354,12 @@ public class SMSSendServiceImpl implements SMSSendService {
 		return ret;
 	}
 
+	/**
+	 * 
+	 * @param list
+	 * @return
+	 * @deprecated
+	 */
 	private List<SMSSendParams> parseYunXinIndividualList(List<SMSSendBean> list) {
 
 		if (null == list || 0 == list.size())
@@ -386,6 +402,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 
 			it.remove();
 		}
+		sb.delete(sb.length() - 3, sb.length());
 		return sb.toString();
 	}
 
@@ -395,35 +412,198 @@ public class SMSSendServiceImpl implements SMSSendService {
 		if (null == list || list.size() == 0)
 			return 0;
 
-		// 先按电话号码打包
+		Collections.sort(list, new SMSSortByContent());
+
 		SendSMSCF sendSms = new SendSMSCF(config);
-		List<SMSSendParams> yxList = parseYunXinSmsList(list);
-		if (null != yxList) {
-			try {
-				for (SMSSendParams ssp : yxList) {
-					logger.info("sending yunxin sms: " + ssp.toString());
-					sendSms.send(ssp, SendSMSCF.sendMes);
+		List<SMSSendBean> rstList = new ArrayList<SMSSendBean>();
+		List<SMSSendBean> notFitList = new ArrayList<SMSSendBean>();
+
+		// int count = 0;
+
+		// 先处理内容相同的，按电话号码打包
+		try {
+			while (list.size() > 0) {
+
+				List<SMSSendBean> oneList = getOneYunXinSmsPack(list,
+						notFitList);
+
+				if (null == oneList)
+					break;
+
+				logger.info("sending yunxin sms...");
+				String sendrst = sendSms.send(packYunXinSms(oneList),
+						SendSMSCF.sendMes);
+				// TODO String sendrst =
+				// sendSms.sendTest(packYunXinSms(oneList));
+
+				int state = SMSSendBean.STATE_SUBSUCC;
+
+				try {
+					if (Integer.parseInt(sendrst) < 0) {
+						state = Integer.parseInt(sendrst);
+					}
+				} catch (Exception e) {
+					// －6:keyWords
+					state = -6;
 				}
+				Timestamp sendtime = new Timestamp(System.currentTimeMillis());
+
+				for (SMSSendBean ssb : oneList) {
+					ssb.setStatcode(sendrst);
+					ssb.setState(state);
+					ssb.setSendtime(sendtime);
+				}
+
+				// count = oneList.size();
+				rstList.addAll(oneList);
+
+				// 当都少于最小包大小时，采用个性化
+				// if (count < config.getPackMin())
+				// break;
+
+				Thread.sleep(config.getSendPause());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e);
+		}
+
+		// 剩下的按个性化打包 notFitList
+		if (null != notFitList) {
+			rstList.addAll(notFitList);
+			SMSSendParams ssp = new SMSSendParams();
+
+			ssp.setChannel(config.getChannal());
+			ssp.setMsg(getOneYunXinPackStr(notFitList));
+
+			try {
+				logger.info("sending yunxin individual...");
+				sendSms.sendPack(ssp, SendSMSCF.IndividualSm);
 			} catch (Exception e) {
 				e.printStackTrace();
 				logger.error(e);
 			}
 		}
 
-		// 剩下的按个性化打包
-		yxList = parseYunXinIndividualList(list);
-		if (null != yxList) {
-			try {
-				for (SMSSendParams ssp : yxList) {
-					logger.info("sending individual: " + ssp.toString());
-					sendSms.sendPack(ssp, SendSMSCF.IndividualSm);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-				logger.error(e);
-			}
+		return rstList.size();
+
+		// /////////////////////////////////////////////
+		// 先按电话号码打包
+		// List<SMSSendParams> yxList = parseYunXinSmsList(list);
+		//
+		// if (null != yxList) {
+		// System.out.println("yunxin sms: " + list.size());
+		// try {
+		// for (SMSSendParams ssp : yxList) {
+		// logger.info("sending yunxin sms: " + ssp.toString());
+		// // TODO sendSms.send(ssp, SendSMSCF.sendMes);
+		//
+		// sendSms.sendTest(ssp);
+		//
+		// }
+		// } catch (Exception e) {
+		// e.printStackTrace();
+		// logger.error(e);
+		// }
+		// }
+		//
+		// // 剩下的按个性化打包
+		// System.out.println("before individual: " + list.size());
+		// yxList = parseYunXinIndividualList(list);
+		//
+		// if (null != yxList) {
+		// System.out.println(" individual: " + yxList.size());
+		// try {
+		// for (SMSSendParams ssp : yxList) {
+		// logger.info("sending yunxin individual: " + ssp.toString());
+		// // sendSms.sendPack(ssp, SendSMSCF.IndividualSm);
+		// sendSms.sendTest(ssp);
+		// }
+		// } catch (Exception e) {
+		// e.printStackTrace();
+		// logger.error(e);
+		// }
+		// }
+
+	}
+
+	/**
+	 * 将list打包成云信的相同内容包
+	 * 
+	 * @param list
+	 *            ，已经过滤了的相同内容的短信
+	 * @return
+	 */
+	private SMSSendParams packYunXinSms(List<SMSSendBean> list) {
+		SMSSendParams ssp = new SMSSendParams();
+		SMSSendBean ss = null;
+		StringBuilder phones = new StringBuilder();
+		for (Iterator<SMSSendBean> it = list.iterator(); it.hasNext();) {
+			ss = it.next();
+			phones.append(ss.getPhone()).append(",");
 		}
-		return 0;
+		phones.delete(phones.length() - 1, phones.length());
+		ssp.setDestNo(phones.toString());
+		ssp.setMsg(ss.getContent());
+		ssp.setChannel(config.getChannal());
+
+		return ssp;
+	}
+
+	/**
+	 * 取一串相同内容的短信列表出来
+	 * 
+	 * @param list
+	 *            已按内容排序的短信列表
+	 * @param notFitList
+	 *            ，数量不够的，做为个性化的，引用返回
+	 * @return
+	 */
+	private List<SMSSendBean> getOneYunXinSmsPack(List<SMSSendBean> list,
+			List<SMSSendBean> notFitList) {
+
+		if (null == list || 0 == list.size())
+			return null;
+
+		// List<SMSSendBean> ret = new ArrayList<SMSSendBean>();
+		// 不满足条件的，暂存，返回
+
+		String msg = null;
+		SMSSendBean ss;
+
+		// 拼相同内容的包
+		while (list.size() > 0) {
+			int count = 0;
+			Boolean started = false;
+			List<SMSSendBean> oneList = new ArrayList<SMSSendBean>();
+
+			for (Iterator<SMSSendBean> it = list.iterator(); it.hasNext();) {
+				ss = it.next();
+
+				if (!started) {
+					started = true;
+					oneList.add(ss);
+					msg = ss.getContent();
+					it.remove();
+					count++;
+				} else {
+					if (ss.getContent().equals(msg)) {
+						oneList.add(ss);
+						it.remove();
+						count++;
+					} else {
+						// 排过序了，所以遇到不相同的就下一轮
+						break;
+					}
+				}
+			}
+
+			if (count < config.getPackMin())
+				notFitList.addAll(oneList);
+			else
+				return oneList;
+		}
+		return null;
 	}
 
 	@Override
