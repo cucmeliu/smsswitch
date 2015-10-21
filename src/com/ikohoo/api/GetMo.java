@@ -31,7 +31,7 @@ public class GetMo {
 	}
 
 	public String getTest() {
-		// TODO Auto-generated method stub
+		// 
 		return null;
 	}
 	

@@ -35,7 +35,6 @@ public class ReportGetServiceImpl implements ReportGetService {
 		try {
 			str = new GetBase(config).get("GetReport2");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			logger.error(e);
 			return null;

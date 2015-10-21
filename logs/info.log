@@ -31340,3 +31340,454 @@ SMSSend [id=15996, phone=13311119109, content=content-7998, intime=2015-10-19 21
 
 2015-10-22 00:00:51,114 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
 
+2015-10-22 00:07:17,696 INFO [com.ikohoo.main.SMSMain] - =======================================
+2015-10-22 00:07:17,697 INFO [com.ikohoo.main.SMSMain] - ==========program start================
+2015-10-22 00:07:17,699 INFO [com.ikohoo.main.SMSMain] - Config [sendInterval=10000, sendCount=1000, sendPause=10, sendThread=1, packMax=50, packMin=3, sendMax=500, recvInterval=30000, getReportInterval=30000, url=http://yes.itissm.com/api/, userCode=wjbcs, userPass=wjbcs123, channal=0]
+2015-10-22 00:07:17,705 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:07:17,730 INFO [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-10-22 00:07:17,911 INFO [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-10-22 00:07:18,027 INFO [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge1609c12lz5851wh2nqj|734ae4c7, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge1609c12lz5851wh2nqj|734ae4c7, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql:///SMSUtil, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-10-22 00:07:18,385 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [10], Cost time: 679 ms
+
+2015-10-22 00:07:18,389 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin sms...
+2015-10-22 00:07:32,363 INFO [com.ikohoo.main.SMSMain] - =======================================
+2015-10-22 00:07:32,364 INFO [com.ikohoo.main.SMSMain] - ==========program start================
+2015-10-22 00:07:32,366 INFO [com.ikohoo.main.SMSMain] - Config [sendInterval=10000, sendCount=1000, sendPause=10, sendThread=1, packMax=50, packMin=3, sendMax=500, recvInterval=30000, getReportInterval=30000, url=http://yes.itissm.com/api/, userCode=wjbcs, userPass=wjbcs123, channal=0]
+2015-10-22 00:07:32,371 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:07:32,399 INFO [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-10-22 00:07:32,578 INFO [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-10-22 00:07:32,692 INFO [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge1609c12lzgjo1aycahh|4a27d662, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge1609c12lzgjo1aycahh|4a27d662, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql:///SMSUtil, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-10-22 00:07:33,035 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [10], Cost time: 663 ms
+
+2015-10-22 00:07:33,039 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin sms...
+2015-10-22 00:07:40,613 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:07:45,001 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 10, fail: -10, Cost time: 11965 ms
+
+2015-10-22 00:07:45,002 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 0 £¬Cost time: 1 ms
+
+2015-10-22 00:07:45,002 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:07:45,002 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:07:45,002 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:07:45,008 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [10], Cost time: 6 ms
+
+2015-10-22 00:07:45,008 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin sms...
+2015-10-22 00:09:29,364 INFO [com.ikohoo.main.SMSMain] - =======================================
+2015-10-22 00:09:29,366 INFO [com.ikohoo.main.SMSMain] - ==========program start================
+2015-10-22 00:09:29,369 INFO [com.ikohoo.main.SMSMain] - Config [sendInterval=10000, sendCount=1000, sendPause=10, sendThread=1, packMax=50, packMin=3, sendMax=500, recvInterval=30000, getReportInterval=30000, url=http://yes.itissm.com/api/, userCode=wjbcs, userPass=wjbcs123, channal=0]
+2015-10-22 00:09:29,379 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:09:29,419 INFO [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-10-22 00:09:29,583 INFO [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-10-22 00:09:29,733 INFO [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge1609c12m1yu4p8tfzn|782e5e43, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge1609c12m1yu4p8tfzn|782e5e43, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql:///SMSUtil, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-10-22 00:09:30,093 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [10], Cost time: 714 ms
+
+2015-10-22 00:09:30,100 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin sms...
+2015-10-22 00:09:37,321 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:09:42,923 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 10, fail: -10, Cost time: 12830 ms
+
+2015-10-22 00:09:42,923 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:09:42,924 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:09:42,924 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:09:42,924 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:09:42,931 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [10], Cost time: 7 ms
+
+2015-10-22 00:09:42,931 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin sms...
+2015-10-22 00:09:44,773 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:09:45,307 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 10, fail: -10, Cost time: 2375 ms
+
+2015-10-22 00:09:45,307 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:09:45,307 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:09:45,307 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:13:03,150 INFO [com.ikohoo.main.SMSMain] - =======================================
+2015-10-22 00:13:03,152 INFO [com.ikohoo.main.SMSMain] - ==========program start================
+2015-10-22 00:13:03,154 INFO [com.ikohoo.main.SMSMain] - Config [sendInterval=10000, sendCount=1000, sendPause=10, sendThread=1, packMax=50, packMin=3, sendMax=500, recvInterval=30000, getReportInterval=30000, url=http://yes.itissm.com/api/, userCode=wjbcs, userPass=wjbcs123, channal=0]
+2015-10-22 00:13:03,161 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:13:03,186 INFO [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-10-22 00:13:03,364 INFO [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-10-22 00:13:03,480 INFO [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge1609c12m6jrzjx0p87|6f31ca9a, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge1609c12m6jrzjx0p87|6f31ca9a, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql:///SMSUtil, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-10-22 00:13:03,831 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [10], Cost time: 670 ms
+
+2015-10-22 00:13:03,835 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin sms...
+2015-10-22 00:13:03,851 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:13:10,946 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 10, fail: -10, Cost time: 7115 ms
+
+2015-10-22 00:13:10,947 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 0 £¬Cost time: 1 ms
+
+2015-10-22 00:13:10,947 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:13:10,947 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:13:13,165 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:13:13,175 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [10], Cost time: 10 ms
+
+2015-10-22 00:13:13,175 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin sms...
+2015-10-22 00:13:13,186 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:13:19,535 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 10, fail: -10, Cost time: 6360 ms
+
+2015-10-22 00:13:19,536 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:13:19,536 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:13:19,537 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:16:23,795 INFO [com.ikohoo.main.SMSMain] - =======================================
+2015-10-22 00:16:23,797 INFO [com.ikohoo.main.SMSMain] - ==========program start================
+2015-10-22 00:16:23,799 INFO [com.ikohoo.main.SMSMain] - Config [sendInterval=10000, sendCount=1000, sendPause=10, sendThread=1, packMax=50, packMin=3, sendMax=500, recvInterval=30000, getReportInterval=30000, url=http://yes.itissm.com/api/, userCode=wjbcs, userPass=wjbcs123, channal=0]
+2015-10-22 00:16:23,807 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:16:23,841 INFO [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-10-22 00:16:24,029 INFO [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-10-22 00:16:24,163 INFO [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge1609c12maum01kvzoh6|7b0b0a46, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge1609c12maum01kvzoh6|7b0b0a46, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql:///SMSUtil, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-10-22 00:16:24,549 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [10], Cost time: 742 ms
+
+2015-10-22 00:16:24,555 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin sms...
+2015-10-22 00:16:24,574 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:16:31,685 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 10, fail: 0, Cost time: 7135 ms
+
+2015-10-22 00:16:31,707 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 4 £¬Cost time: 22 ms
+
+2015-10-22 00:16:31,712 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 4 £¬Cost time: 5 ms
+
+2015-10-22 00:16:31,712 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    deal left list: 
+2015-10-22 00:16:31,712 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=10, phone=13311111121, content=content-10, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:16:31,713 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=5, phone=13311111116, content=content-5, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:16:31,715 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=6, phone=13311111117, content=content-5, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:16:31,715 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=7, phone=13311111118, content=content-6, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:16:31,715 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=8, phone=13311111119, content=content-8, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:16:31,716 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=9, phone=13311111120, content=content-9, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:16:31,716 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:16:33,811 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:16:33,820 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [6], Cost time: 9 ms
+
+2015-10-22 00:16:33,820 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:19:34,240 INFO [com.ikohoo.main.SMSMain] - =======================================
+2015-10-22 00:19:34,241 INFO [com.ikohoo.main.SMSMain] - ==========program start================
+2015-10-22 00:19:34,243 INFO [com.ikohoo.main.SMSMain] - Config [sendInterval=10000, sendCount=1000, sendPause=10, sendThread=1, packMax=50, packMin=3, sendMax=500, recvInterval=30000, getReportInterval=30000, url=http://yes.itissm.com/api/, userCode=wjbcs, userPass=wjbcs123, channal=0]
+2015-10-22 00:19:34,248 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:19:34,274 INFO [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-10-22 00:19:34,455 INFO [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-10-22 00:19:34,594 INFO [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge1609c12mexjn11ooxhi|4a27d662, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge1609c12mexjn11ooxhi|4a27d662, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql:///SMSUtil, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-10-22 00:19:34,956 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [6], Cost time: 707 ms
+
+2015-10-22 00:19:34,960 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:19:42,721 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 6, fail: 0, Cost time: 7765 ms
+
+2015-10-22 00:19:42,722 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:19:42,722 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:19:42,722 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    deal left list: 
+2015-10-22 00:19:42,723 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=10, phone=13311111121, content=content-10, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:42,723 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=5, phone=13311111116, content=content-5, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:42,723 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=6, phone=13311111117, content=content-5, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:42,723 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=7, phone=13311111118, content=content-6, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:42,723 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=8, phone=13311111119, content=content-8, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:42,724 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=9, phone=13311111120, content=content-9, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:42,724 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:19:44,253 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:19:44,256 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [6], Cost time: 3 ms
+
+2015-10-22 00:19:44,256 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:19:50,289 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 6, fail: 0, Cost time: 6033 ms
+
+2015-10-22 00:19:50,289 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:19:50,290 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 0 £¬Cost time: 1 ms
+
+2015-10-22 00:19:50,290 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    deal left list: 
+2015-10-22 00:19:50,290 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=10, phone=13311111121, content=content-10, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:50,290 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=5, phone=13311111116, content=content-5, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:50,290 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=6, phone=13311111117, content=content-5, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:50,291 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=7, phone=13311111118, content=content-6, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:50,291 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=8, phone=13311111119, content=content-8, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:50,291 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=9, phone=13311111120, content=content-9, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:50,291 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:19:54,255 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:19:54,260 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [6], Cost time: 5 ms
+
+2015-10-22 00:19:54,261 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:19:59,604 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 6, fail: 0, Cost time: 5343 ms
+
+2015-10-22 00:19:59,604 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:19:59,605 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 0 £¬Cost time: 1 ms
+
+2015-10-22 00:19:59,605 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    deal left list: 
+2015-10-22 00:19:59,605 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=10, phone=13311111121, content=content-10, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:59,605 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=5, phone=13311111116, content=content-5, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:59,605 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=6, phone=13311111117, content=content-5, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:59,605 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=7, phone=13311111118, content=content-6, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:59,606 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=8, phone=13311111119, content=content-8, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:59,606 INFO [com.ikohoo.main.SendSMSBiz] - SMSSend [id=9, phone=13311111120, content=content-9, intime=2015-10-20 22:07:40.0, state=0, sendtime=2015-10-20 22:07:40.0]
+2015-10-22 00:19:59,606 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:20:04,255 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:20:04,259 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [6], Cost time: 3 ms
+
+2015-10-22 00:20:04,259 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:23:34,929 INFO [com.ikohoo.main.SMSMain] - =======================================
+2015-10-22 00:23:34,930 INFO [com.ikohoo.main.SMSMain] - ==========program start================
+2015-10-22 00:23:34,932 INFO [com.ikohoo.main.SMSMain] - Config [sendInterval=10000, sendCount=1000, sendPause=10, sendThread=1, packMax=50, packMin=3, sendMax=500, recvInterval=30000, getReportInterval=30000, url=http://yes.itissm.com/api/, userCode=wjbcs, userPass=wjbcs123, channal=0]
+2015-10-22 00:23:34,939 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:23:34,966 INFO [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-10-22 00:23:35,141 INFO [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-10-22 00:23:35,261 INFO [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge1609c12mk39mhf3jrt|4dd2170, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge1609c12mk39mhf3jrt|4dd2170, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql:///SMSUtil, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-10-22 00:23:35,631 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [6], Cost time: 692 ms
+
+2015-10-22 00:23:35,640 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:23:38,130 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 0, fail: 0, Cost time: 2498 ms
+
+2015-10-22 00:23:38,130 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:23:38,130 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:23:38,131 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:23:44,941 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:23:44,944 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [6], Cost time: 3 ms
+
+2015-10-22 00:23:44,944 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:23:47,440 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 0, fail: 0, Cost time: 2496 ms
+
+2015-10-22 00:23:47,440 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:23:47,440 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:23:47,441 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:24:59,450 INFO [com.ikohoo.main.SMSMain] - =======================================
+2015-10-22 00:24:59,450 INFO [com.ikohoo.main.SMSMain] - ==========program start================
+2015-10-22 00:24:59,453 INFO [com.ikohoo.main.SMSMain] - Config [sendInterval=10000, sendCount=1000, sendPause=10, sendThread=1, packMax=50, packMin=3, sendMax=500, recvInterval=30000, getReportInterval=30000, url=http://yes.itissm.com/api/, userCode=wjbcs, userPass=wjbcs123, channal=0]
+2015-10-22 00:24:59,459 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:24:59,490 INFO [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-10-22 00:24:59,666 INFO [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-10-22 00:24:59,789 INFO [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge1609c12mlwhd13utvcn|734ae4c7, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge1609c12mlwhd13utvcn|734ae4c7, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql:///SMSUtil, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-10-22 00:25:00,150 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [6], Cost time: 690 ms
+
+2015-10-22 00:25:00,156 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:25:05,700 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 0, fail: 0, Cost time: 5550 ms
+
+2015-10-22 00:25:05,701 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 0 £¬Cost time: 1 ms
+
+2015-10-22 00:25:05,701 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 0 £¬Cost time: 0 ms
+
+2015-10-22 00:25:05,701 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:25:09,465 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:25:09,468 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [6], Cost time: 3 ms
+
+2015-10-22 00:25:09,468 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:26:25,162 INFO [com.ikohoo.main.SMSMain] - =======================================
+2015-10-22 00:26:25,163 INFO [com.ikohoo.main.SMSMain] - ==========program start================
+2015-10-22 00:26:25,165 INFO [com.ikohoo.main.SMSMain] - Config [sendInterval=10000, sendCount=1000, sendPause=10, sendThread=1, packMax=50, packMin=3, sendMax=500, recvInterval=30000, getReportInterval=30000, url=http://yes.itissm.com/api/, userCode=wjbcs, userPass=wjbcs123, channal=0]
+2015-10-22 00:26:25,170 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:26:25,196 INFO [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-10-22 00:26:25,370 INFO [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-10-22 00:26:25,494 INFO [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge1609c12mnqm4jcmgsd|4a27d662, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge1609c12mnqm4jcmgsd|4a27d662, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql:///SMSUtil, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-10-22 00:26:25,864 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [6], Cost time: 693 ms
+
+2015-10-22 00:26:25,868 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:26:31,114 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 0, fail: 6, Cost time: 5250 ms
+
+2015-10-22 00:26:31,138 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 6 £¬Cost time: 24 ms
+
+2015-10-22 00:26:31,146 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 6 £¬Cost time: 7 ms
+
+2015-10-22 00:26:31,146 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:26:35,171 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:26:35,173 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:26:35,173 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:26:45,174 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:26:45,183 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:26:45,183 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:26:55,179 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:26:55,181 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:26:55,181 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:27:05,182 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:27:05,183 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:27:05,183 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:27:15,186 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:27:15,188 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:27:15,188 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:27:25,187 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:27:25,188 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:27:25,188 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:27:35,192 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:27:35,193 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:27:35,193 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:27:45,195 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:27:45,196 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:27:45,197 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:27:55,195 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:27:55,197 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:27:55,197 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:28:05,195 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:28:05,197 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:28:05,197 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:28:15,196 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:28:15,207 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [15], Cost time: 11 ms
+
+2015-10-22 00:28:15,207 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin sms...
+2015-10-22 00:28:15,219 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin sms...
+2015-10-22 00:28:15,230 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin sms...
+2015-10-22 00:28:15,241 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:28:15,453 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 12, fail: 3, Cost time: 246 ms
+
+2015-10-22 00:28:15,468 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 15 £¬Cost time: 13 ms
+
+2015-10-22 00:28:15,477 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 15 £¬Cost time: 9 ms
+
+2015-10-22 00:28:15,478 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:28:25,201 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:28:25,209 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:28:25,210 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:31:14,682 INFO [com.ikohoo.main.SMSMain] - =======================================
+2015-10-22 00:31:14,683 INFO [com.ikohoo.main.SMSMain] - ==========program start================
+2015-10-22 00:31:14,685 INFO [com.ikohoo.main.SMSMain] - Config [sendInterval=10000, sendCount=1000, sendPause=10, sendThread=1, packMax=50, packMin=3, sendMax=500, recvInterval=30000, getReportInterval=30000, url=http://yes.itissm.com/api/, userCode=wjbcs, userPass=wjbcs123, channal=0]
+2015-10-22 00:31:14,693 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:31:14,719 INFO [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-10-22 00:31:14,879 INFO [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-10-22 00:31:15,004 INFO [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge1609c12mty0bpho2mp|7b0b0a46, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge1609c12mty0bpho2mp|7b0b0a46, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql:///SMSUtil, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-10-22 00:31:15,358 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:31:15,358 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:31:24,695 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:31:24,697 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:31:24,697 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:31:34,700 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:31:34,702 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:31:34,703 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:31:44,705 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:31:44,714 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:31:44,714 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:31:54,707 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:31:54,717 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:31:54,717 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:32:04,709 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:32:04,713 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:32:04,713 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:32:14,714 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:32:14,722 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:32:14,722 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:32:24,717 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:32:24,718 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:32:24,718 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:32:34,720 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:32:34,741 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [8], Cost time: 13 ms
+
+2015-10-22 00:32:34,747 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin sms...
+2015-10-22 00:32:56,197 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin sms...
+2015-10-22 00:33:00,620 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual...
+2015-10-22 00:33:00,727 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 6, fail: 2, Cost time: 25986 ms
+
+2015-10-22 00:33:00,764 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 8 £¬Cost time: 37 ms
+
+2015-10-22 00:33:00,769 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 8 £¬Cost time: 5 ms
+
+2015-10-22 00:33:00,770 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:33:00,770 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:33:00,771 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:33:00,771 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:33:10,772 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:33:10,773 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:33:10,773 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:37:17,395 INFO [com.ikohoo.main.SMSMain] - =======================================
+2015-10-22 00:37:17,395 INFO [com.ikohoo.main.SMSMain] - ==========program start================
+2015-10-22 00:37:17,398 INFO [com.ikohoo.main.SMSMain] - Config [sendInterval=10000, sendCount=1000, sendPause=10, sendThread=1, packMax=50, packMin=3, sendMax=500, recvInterval=30000, getReportInterval=30000, url=http://yes.itissm.com/api/, userCode=wjbcs, userPass=wjbcs123, channal=0]
+2015-10-22 00:37:17,406 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:37:17,432 INFO [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-10-22 00:37:17,602 INFO [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-10-22 00:37:17,711 INFO [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge1609c12n1pvx12ie9x0|7c26ceeb, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge1609c12n1pvx12ie9x0|7c26ceeb, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql:///SMSUtil, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-10-22 00:37:18,049 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:37:18,050 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:37:27,410 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:37:27,411 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:37:27,412 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:37:37,414 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:37:37,423 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:37:37,423 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:37:47,418 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:37:47,420 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:37:47,420 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:37:57,424 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:37:57,425 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:37:57,425 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:38:07,428 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:38:07,440 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:38:07,441 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:38:17,432 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:38:17,433 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:38:17,433 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:38:27,437 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:38:27,438 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:38:27,439 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:38:37,442 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:38:37,443 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:38:37,443 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:38:47,447 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:38:47,448 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:38:47,448 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:38:57,452 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:38:57,476 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] Get new sms: [10], Cost time: 16 ms
+
+2015-10-22 00:39:04,192 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin sms, result: -8
+2015-10-22 00:39:08,876 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin sms, result: -8
+2015-10-22 00:39:10,894 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] - sending yunxin individual, result: -1
+2015-10-22 00:39:10,895 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ]    Send succ: 10, fail: 0, Cost time: 13419 ms
+
+2015-10-22 00:39:10,932 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   insert sent record : 10 £¬Cost time: 37 ms
+
+2015-10-22 00:39:10,938 INFO [com.ikohoo.service.impl.SMSSendServiceImpl] -   delete sent record : 10 £¬Cost time: 6 ms
+
+2015-10-22 00:39:10,938 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:39:10,938 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:39:10,939 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:39:10,939 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 00:39:20,942 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS YunXin--------
+2015-10-22 00:39:20,945 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 00:39:20,945 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+

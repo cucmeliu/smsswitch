@@ -45,7 +45,7 @@ public class SendSMSBizYunXin extends TimerTask{
 		service.setConfig(config);
 		long start = System.currentTimeMillis();
 		//List<SMSSendBean> list = service.getNewSMS(config.getSendCount());
-		//TODO 多线程处理
+		//
 		List<SMSSendBean> list = service.getNewSMS(config.getSendCount(), 
 				config.getSendThread(), 
 				remainder);

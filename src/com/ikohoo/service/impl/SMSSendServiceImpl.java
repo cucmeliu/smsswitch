@@ -78,7 +78,6 @@ public class SMSSendServiceImpl implements SMSSendService {
 		try {
 			a = dao.insert(list);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			logger.error(e);
 			return 0;
@@ -207,7 +206,6 @@ public class SMSSendServiceImpl implements SMSSendService {
 			try {
 				sendRst = sendSms.send(msg, SendSMSCF.SendMsg);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				logger.error(e);
 				sendRst = "";
@@ -400,7 +398,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 			sb.append(ss.getPhone()).append("|!|").append(ss.getContent())
 					.append("|^|");
 
-			it.remove();
+			//it.remove();
 		}
 		sb.delete(sb.length() - 3, sb.length());
 		return sb.toString();
@@ -430,11 +428,10 @@ public class SMSSendServiceImpl implements SMSSendService {
 				if (null == oneList)
 					break;
 
-				logger.info("sending yunxin sms...");
-				String sendrst = sendSms.send(packYunXinSms(oneList),
-						SendSMSCF.sendMes);
-				// TODO String sendrst =
-				// sendSms.sendTest(packYunXinSms(oneList));
+				
+				String sendrst = sendSms.send(packYunXinSms(oneList), SendSMSCF.sendMes);
+				logger.info("sending yunxin sms, result: " + sendrst);
+				// TODO String sendrst = sendSms.sendTest(packYunXinSms(oneList));
 
 				int state = SMSSendBean.STATE_SUBSUCC;
 
@@ -470,22 +467,44 @@ public class SMSSendServiceImpl implements SMSSendService {
 
 		// 剩下的按个性化打包 notFitList
 		if (null != notFitList) {
-			rstList.addAll(notFitList);
+			
 			SMSSendParams ssp = new SMSSendParams();
 
 			ssp.setChannel(config.getChannal());
 			ssp.setMsg(getOneYunXinPackStr(notFitList));
 
 			try {
-				logger.info("sending yunxin individual...");
-				sendSms.sendPack(ssp, SendSMSCF.IndividualSm);
+				String sendrst = sendSms.sendPack(ssp, SendSMSCF.IndividualSm);
+				logger.info("sending yunxin individual, result: " + sendrst);
+				
+				int state = SMSSendBean.STATE_SUBSUCC;
+
+				try {
+					if (Integer.parseInt(sendrst) < 0) {
+						state = Integer.parseInt(sendrst);
+					}
+				} catch (Exception e) {
+					// －6:keyWords
+					state = -6;
+				}
+				Timestamp sendtime = new Timestamp(System.currentTimeMillis());
+
+				for (SMSSendBean ssb : notFitList) {
+					ssb.setStatcode(sendrst);
+					ssb.setState(state);
+					ssb.setSendtime(sendtime);
+				}
+				
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 				logger.error(e);
 			}
 		}
+		list.addAll(notFitList);
+		list.addAll(rstList);
 
-		return rstList.size();
+		return list.size();
 
 		// /////////////////////////////////////////////
 		// 先按电话号码打包
@@ -496,7 +515,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 		// try {
 		// for (SMSSendParams ssp : yxList) {
 		// logger.info("sending yunxin sms: " + ssp.toString());
-		// // TODO sendSms.send(ssp, SendSMSCF.sendMes);
+		// // TO DO sendSms.send(ssp, SendSMSCF.sendMes);
 		//
 		// sendSms.sendTest(ssp);
 		//
@@ -613,6 +632,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 		SMSSendBean ss;
 		for (Iterator<SMSSendBean> it = list.iterator(); it.hasNext();) {
 			ss = it.next();
+			//System.out.println("deal: " + ss.toString());
 			if (ss.getState() != 0) {
 				sentList.add(ss);
 				it.remove();
