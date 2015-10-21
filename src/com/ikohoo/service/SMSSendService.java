@@ -40,8 +40,9 @@ public interface SMSSendService {
 	 * 打包发送短信
 	 * @param list 待发送的一包
 	 * @return
+	 * @throws Exception 
 	 */
-	public int sendOnePack(List<SMSSendBean> list);
+	public int sendOnePack(List<SMSSendBean> list) throws Exception;
 	
 	/**
 	 * 按打包方式发送的业务逻辑，包括组包过程
@@ -52,6 +53,13 @@ public interface SMSSendService {
 	public int packSend(List<SMSSendBean> list);
 	
 	/**
+	 * 以云信的sendMes接口方式发
+	 * @param list
+	 * @return
+	 */
+	public int sendYunXin(List<SMSSendBean> list);
+	
+	/**
 	 * 按id号排序，将新从数据库中取出来的待发列表，并入内存列表
 	 * @param total
 	 * @param newList
@@ -59,11 +67,20 @@ public interface SMSSendService {
 	public void addNewListToTotal(List<SMSSendBean> total, List<SMSSendBean> newList);
 	
 	/**
-	 * 处理掉已经提交过的短信：插入数据库、从待发列表删除
+	 * 处理掉已经提交过的短信：更新数据表
 	 * @param list：待发列表，包括已提交和未提交的短信
 	 * @return：返回本次处理的条数
 	 */
 	public int dealSentSMS(List<SMSSendBean> list);
 	
+	/**
+	 * 处理掉已经提交过的短信：插入数据库、从待发列表删除
+	 * @param list：待发列表，包括已提交和未提交的短信
+	 * @return：返回本次处理的条数
+	 */
+	public int dealSentSMSYunXin(List<SMSSendBean> list);
+	
 	public void setConfig(Config config);
+
+	public List<SMSSendBean> getNewSMS(int count, int mod, int remainder);
 }

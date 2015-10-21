@@ -1,5 +1,6 @@
 package com.ikohoo.service.impl;
 
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,7 @@ import com.ikohoo.service.ReportGetService;
 
 public class ReportGetServiceImpl implements ReportGetService {
 	static Logger logger = Logger.getLogger(ReportGetServiceImpl.class);
-	
+
 	ReportGetDao dao = BasicFactory.getFactory()
 			.getInstance(ReportGetDao.class);
 
@@ -24,18 +25,25 @@ public class ReportGetServiceImpl implements ReportGetService {
 
 	@Override
 	public ReportGet getReport(String batchNumber) {
-		return splitOneRecord(new GetBase(config).getTest(batchNumber));
+		return null;// splitOneRecord(new GetBase(config).batchNumber));
 	}
 
 	@Override
 	public List<ReportGet> getReport2() {
 
-		String str = new GetBase(config)
-			.get("GetReport2");
+		String str;
+		try {
+			str = new GetBase(config).get("GetReport2");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			logger.error(e);
+			return null;
+		}
 		// TODO 测试使用，发布时改为上面的语句
-			//.getTest("GetReport2");
+		// .getTest("GetReport2");
 
-		if (null == str || "".equals(str)) {
+		if (null == str || "".equals(str.trim())) {
 			return null;
 		}
 		System.out.println(str);
@@ -45,7 +53,9 @@ public class ReportGetServiceImpl implements ReportGetService {
 
 		List<ReportGet> list = new ArrayList<ReportGet>();
 		for (int i = 0; i < sp.length; i++) {
-			list.add(splitOneRecord(sp[i]));
+			ReportGet rg = splitOneRecord(sp[i]);
+			if (null != rg)
+				list.add(rg);
 		}
 
 		return list;
@@ -80,12 +90,24 @@ public class ReportGetServiceImpl implements ReportGetService {
 
 	@Override
 	public int insert2DB(List<ReportGetBean> list) {
-		int[] a = dao.insert(list);
-		int ret = 0;
-		for (int i = 0; i < a.length; i++)
-			ret += a[i];
+		int[] a;
+		try {
+			a = dao.insert(list);
 
-		return ret;
+			if (null==a)
+				return 0;
+			
+			int ret = 0;
+			for (int i = 0; i < a.length; i++)
+				ret += a[i];
+
+			return ret;
+		} catch (SQLException e) {
+			logger.error(e);
+			e.printStackTrace();
+		}
+		return 0;
+
 	}
 
 	@Override
@@ -97,11 +119,12 @@ public class ReportGetServiceImpl implements ReportGetService {
 
 		List<ReportGetBean> rst = new ArrayList<ReportGetBean>();
 		ReportGetBean st = null;
-		//Format fmt = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		// Format fmt = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		for (ReportGet rg : list) {
 			st = new ReportGetBean();
 			st.setPhone(rg.getPhone());
-			st.setSendtime(Timestamp.valueOf(rg.getSendtime().replaceAll("/", "-")));
+			st.setSendtime(Timestamp.valueOf(rg.getSendtime().replaceAll("/",
+					"-")));
 			st.setSmsid(rg.getBatchNum());
 			st.setStatcode(rg.getStatus());
 			st.setStatmsg("");

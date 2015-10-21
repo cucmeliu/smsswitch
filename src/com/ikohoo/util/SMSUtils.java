@@ -122,13 +122,14 @@ public class SMSUtils {
 		return parseReturnStrRep(str);
 	}
 
-	public static long parseSendSMSReturn(String str) {
+	public static String parseSendSMSReturn(String str)  {
 		String ret = parseReturnStrRep(str); //parseReturn(str);
 		System.out.println("parse result: " + ret);
-		if (null == ret || "".equals(ret)) {
-			return RETURN_ERROR_UNKNOWN;
-		} else
-			return Long.parseLong(ret);
+		return ret;
+//		if (null == ret || "".equals(ret)) {
+//			return RETURN_ERROR_UNKNOWN;
+//		} else
+//			return Long.parseLong(ret);
 
 	}
 	

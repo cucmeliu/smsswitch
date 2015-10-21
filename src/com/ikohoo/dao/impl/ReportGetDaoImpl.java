@@ -1,27 +1,26 @@
 package com.ikohoo.dao.impl;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.log4j.Logger;
-
 import com.ikohoo.dao.ReportGetDao;
 import com.ikohoo.domain.ReportGetBean;
 import com.ikohoo.util.DaoUtils;
 
-public class ReportGetDaoImpl implements ReportGetDao{
-	
-	static Logger logger = Logger.getLogger(ReportGetDaoImpl.class);
+public class ReportGetDaoImpl implements ReportGetDao {
+
+	//static Logger logger = Logger.getLogger(ReportGetDaoImpl.class);
 
 	@Override
-	public int[] insert(List<ReportGetBean> list) {
-								// id, phone,statcode,statmsg,smsid,sendtime
+	public int[] insert(List<ReportGetBean> list) throws SQLException {
+		// id, phone,statcode,statmsg,smsid,sendtime
 		String sql = " INSERT INTO  stat_sf VALUES (null, ?, ?, ?, ?, ?) ";
 		try {
 			QueryRunner runner = new QueryRunner(DaoUtils.getSource());
 			Object[][] params = new Object[list.size()][5];
-			int i=0;
-			for (ReportGetBean ss : list){
+			int i = 0;
+			for (ReportGetBean ss : list) {
 				params[i][0] = ss.getPhone();
 				params[i][1] = ss.getStatcode();
 				params[i][2] = ss.getStatmsg();
@@ -30,10 +29,12 @@ public class ReportGetDaoImpl implements ReportGetDao{
 				i++;
 			}
 			return runner.batch(sql, params);
+		} catch (SQLException e1) {
+			//e1.printStackTrace();
+			throw e1;
 		} catch (Exception e) {
-			e.printStackTrace();
-			logger.error(e.getStackTrace());
-			throw new RuntimeException(e);
+			//e.printStackTrace();
+			return null;
 		}
 	}
 

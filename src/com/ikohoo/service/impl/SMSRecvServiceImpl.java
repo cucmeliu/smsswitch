@@ -1,5 +1,6 @@
 package com.ikohoo.service.impl;
 
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,10 +24,18 @@ public class SMSRecvServiceImpl implements SMSRecvService {
 
 	@Override
 	public List<SMSRecv> getRecvList() {
-		String str = new GetBase(config)
-			.get("GetMo2");
-		// TODO 测试使用，发布时改为上面的语句
+		String str;
+		try {
+			str = new GetBase(config)
+				.get("GetMo2");
+			// TODO 测试使用，发布时改为上面的语句
 		 	//.getTest("GetMo2");
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e);
+			return null;
+		}
+		
 		
 		if (null == str || "".equals(str)) {
 			return null;
@@ -39,7 +48,9 @@ public class SMSRecvServiceImpl implements SMSRecvService {
 		List<SMSRecv> list = new ArrayList<SMSRecv>();
 
 		for (int i = 0; i < sp.length; i++) {
-			list.add(splitOneRecord(sp[i]));
+			SMSRecv sr = splitOneRecord(sp[i]);
+			if (null != sr)
+				list.add(sr);
 		}
 
 		return list;
@@ -67,7 +78,15 @@ public class SMSRecvServiceImpl implements SMSRecvService {
 
 	@Override
 	public int insert2DB(List<SMSRecvBean> list) {
-		int[] a = dao.insert(list);
+		int[] a;
+		try {
+			a = dao.insert(list);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			logger.error(e);
+			return 0;
+		}
+		
 		int sum = 0;
 		for (int i = 0; i < a.length; i++)
 			sum += a[i];

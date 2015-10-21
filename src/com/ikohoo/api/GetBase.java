@@ -17,7 +17,6 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
-import org.apache.log4j.Logger;
 
 import com.ikohoo.domain.Config;
 import com.ikohoo.util.SMSUtils;
@@ -28,7 +27,7 @@ import com.ikohoo.util.SMSUtils;
  *
  */
 public class GetBase {
-	static Logger logger = Logger.getLogger(GetBase.class);
+	//static Logger logger = Logger.getLogger(GetBase.class);
 	private Config config;
 	private String url;
 	
@@ -47,8 +46,9 @@ public class GetBase {
 	 * 
 	 * @param method: GetMo, GetMo2, GetReport, GetReport2
 	 * @return
+	 * @throws Exception 
 	 */
-	public String get(String method) {
+	public String get(String method) throws Exception {
 		
 		url = config.getUrl() + method;
 		
@@ -75,9 +75,10 @@ public class GetBase {
              return SMSUtils.parseReturn(str);
              
         } catch (Exception e) {
-        	e.printStackTrace();
-        	logger.error(e.getStackTrace());
-            throw new RuntimeException(e);
+        	//e.printStackTrace();
+        	//logger.error(e);
+            throw e;
+        	//return null;
         }
 	}
 	

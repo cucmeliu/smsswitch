@@ -24,16 +24,12 @@ public class SMSMain {
 		// 先这样实现业务，后续可考虑用线程同步
 		logger.info("=======================================");
 		logger.info("==========program start================");
-		System.out.println("=======================================");
-		System.out.println("==========program start================");
 
 		Config config = ConfigReader.loadConfig();
 		logger.info(config.toString());
-		System.out.println(config.toString());
+		//System.out.println(config.toString());
 
-		byte startModu = 0x0; // 要开启的功能，1 sendsms, 2 getrecv, 4 getreport, 8
-								// test
-								// test
+		byte startModu = 0x0; // 要开启的功能，1 send, 2 recv, 4 rept, 8 test
 
 		if (args.length == 0) {
 			// 默认不开test，其他都开
@@ -41,25 +37,33 @@ public class SMSMain {
 			System.out.println("start all true function");
 		} else {
 			for (int i = 0; i < args.length; i++) {
-				if ("sendsms".equals(args[i]))
+				if ("send".equals(args[i]))
 					startModu |= 0x1;
-				else if ("getrecv".equals(args[i]))
+				else if ("recv".equals(args[i]))
 					startModu |= 0x2;
-				else if ("getreport".equals(args[i]))
+				else if ("rept".equals(args[i]))
 					startModu |= 0x4;
-				else if ("test".equals(args[i]))
+				else if ("yunxin".equals(args[i]))
 					startModu |= 0x8;
+				else if ("test".equals(args[i]))
+					startModu |= 0x10;
 				else if ("all".equals(args[i]))
-					startModu |= 0xf;
+					startModu |= 0x1f;
 			}
 		}
 
 		if ((startModu & 0x1) != 0) {
 			// 处理发送短信进程，
-			System.out.println("start send sms thread ---------->>>>>");
-			Timer timerSendSMS = new Timer();
-			timerSendSMS.schedule(new SendSMSBiz(config), 0,
-					config.getSendInterval());
+			System.out.println("start send sms thread ---------->>>>> [ "
+					+ config.getSendThread() + " ] thread");
+
+			for (int i = 0; i < config.getSendThread(); i++) {
+				Timer timerSendSMS = new Timer();
+				SendSMSBiz biz = new SendSMSBiz(config);
+				biz.setRemainder(i);
+				timerSendSMS.schedule(biz, 0,
+						config.getSendInterval());
+			}
 		}
 		if ((startModu & 0x2) != 0) {
 			// 处理回复短信
@@ -75,11 +79,19 @@ public class SMSMain {
 			timerGetReport.schedule(new GetReportBiz(config), 0,
 					config.getGetReportInterval());
 		}
+
 		if ((startModu & 0x8) != 0) {
+			System.out.println("~~~~start yunxin thread ~~~  ");
+			Timer t = new Timer();
+			t.schedule(new SendSMSBizYunXin(config), 0, 
+					config.getSendInterval());
+		}
+		
+		if ((startModu & 0x10) != 0) {
 			// TODO 发送信息表，测试，发布时去除下面的代码段
 			System.out.println("~~~~start test thread ~~~  ");
 			Timer t = new Timer();
-			t.schedule(new DBTester(), 0, 2000);
+			t.schedule(new DBTester(), 0, 3000);
 		}
 
 	}

@@ -18,6 +18,17 @@ public class SendSMSBiz extends TimerTask {
 
 	private Config config;
 
+	public int getRemainder() {
+		return remainder;
+	}
+
+	public void setRemainder(int remainder) {
+		this.remainder = remainder;
+	}
+
+	private int remainder = 0;  // 取模的余数
+	//private int mod = 1;   // 对mod取模
+
 	public SendSMSBiz(Config config) {
 		super();
 		this.config = config;
@@ -26,29 +37,36 @@ public class SendSMSBiz extends TimerTask {
 	@Override
 	public void run() {
 
-		logAndPrint("--------------Send SMS-----------------");
+		logAndPrint("thread # [ "+ remainder +" ] --------Send SMS--------");
 
 		
 		// get data from db, 每次取1000条
 		service.setConfig(config);
 		long start = System.currentTimeMillis();
-		List<SMSSendBean> list = service.getNewSMS(config.getSendCount());
+		//List<SMSSendBean> list = service.getNewSMS(config.getSendCount());
+		//TODO 多线程处理
+		List<SMSSendBean> list = service.getNewSMS(config.getSendCount(), config.getSendThread(), remainder);
+		
+		
 		if (null == list || 0 == list.size()) {
-			logAndPrint("No new sms to send, wait for next loop...");
+			logAndPrint("# [ "+ remainder +" ] No new sms to send, wait for next loop...");
 		} else {
 			// 增加处理：列表中没有的才加入，避免重复
-			System.out.println("--->>>get sms to send: ");
-			for (SMSSendBean ssb : list) {
-				logAndPrint(ssb.toString());
-			}
+			//System.out.println("--->>>get sms to send: ");
+//			StringBuilder sb = new StringBuilder();
+//			for (SMSSendBean ssb : list) {
+//				sb.append(ssb.toString()).append("\n");
+//				
+//			}
+//			logAndPrint("# [ "+ remainder +" ] get: " + sb.toString());
 			
-			logAndPrint("Get new sms: [" + list.size() + "]" + ", Cost time: "
+			logAndPrint("# [ "+ remainder +" ] Get new sms: [" + list.size() + "]" + ", Cost time: "
 					+ (System.currentTimeMillis() - start) + " ms\n");
 
 			start = System.currentTimeMillis();
 			int succCount = service.packSend(list);
 
-			logAndPrint("  Send succ: " + succCount + ", fail: "
+			logAndPrint("# [ "+ remainder +" ]    Send succ: " + succCount + ", fail: "
 					+ (list.size() - succCount) + ", Cost time: "
 					+ (System.currentTimeMillis() - start) + " ms\n");
 
@@ -56,13 +74,13 @@ public class SendSMSBiz extends TimerTask {
 			int num = service.dealSentSMS(list);
 
 			if (list.size() != 0) {
-				logAndPrint("deal left list: ");
+				logAndPrint("# [ "+ remainder +" ]    deal left list: ");
 				for (SMSSendBean ssb : list) {
 					logAndPrint(ssb.toString());
 				}
 			}
 
-			logAndPrint("  Update send state to DB: " + num + " ，Cost time: "
+			logAndPrint("# [ "+ remainder +" ]    Update send state to DB: " + num + ", Cost time: "
 					+ (System.currentTimeMillis() - start) + " ms\n");
 		}
 		logAndPrint("---------------------------------------\n");
@@ -70,7 +88,7 @@ public class SendSMSBiz extends TimerTask {
 
 	private void logAndPrint(String msg) {
 		logger.info(msg);
-		System.out.println(msg);
+		//System.out.println(msg);
 	}
 
 }

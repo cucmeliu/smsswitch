@@ -1,0 +1,18 @@
+使用说明：
+1. 运行程序
+将程序压缩包smsSwitch.tar复制到任意有权限访问的路径，如/home/，使用命令以下命令解压：
+	tar xzvf smsSwitch.tar.gz
+在Linux的shell模式下，进入解压目录，执行以下命令运行程序
+	./startSmsSwitch.sh
+
+2. 如修修改各种配置，直接在解压目录下进行修改
+
+3. 修改数据库配置
+3.1 修改c3p0-config.xml，
+jdbcUrl对应的为连接地址，如数据库服务器地址为192.168.0.10，
+则配置为<property name="jdbcUrl">jdbc:mysql:///SMSUtil</property>
+user用户名和password密码
+默认为：root/root
+
+4. 修改发送、接收频率等参数
+4.1 用记事本打开并修改project.property文件，内有详细说明

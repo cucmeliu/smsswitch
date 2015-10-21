@@ -10,12 +10,12 @@ public class SMSSendBean {
 	private int state;
 	private Timestamp sendtime;
 	
-	private long statcode;
+	private String statcode;
 
-	public long getStatcode() {
+	public String getStatcode() {
 		return statcode;
 	}
-	public void setStatcode(long statcode) {
+	public void setStatcode(String statcode) {
 		this.statcode = statcode;
 	}
 	/**

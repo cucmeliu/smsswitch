@@ -5,12 +5,16 @@ public class Config {
 	private int sendInterval;
 	private int sendCount;
 	private int sendPause;
+	private int sendThread;
 	private int packMax;
+	private int packMin;
+	private int sendMax;
 	private int recvInterval;
 	private int getReportInterval;
 	private String url;
 	private String userCode;
 	private String userPass;
+	private String channal;
 	
 	
 	public int getGetReportInterval() {
@@ -72,10 +76,12 @@ public class Config {
 	@Override
 	public String toString() {
 		return "Config [sendInterval=" + sendInterval + ", sendCount="
-				+ sendCount + ", sendPause=" + sendPause + ", packMax="
-				+ packMax + ", recvInterval=" + recvInterval
+				+ sendCount + ", sendPause=" + sendPause + ", sendThread="
+				+ sendThread + ", packMax=" + packMax + ", packMin=" + packMin
+				+ ", sendMax=" + sendMax + ", recvInterval=" + recvInterval
 				+ ", getReportInterval=" + getReportInterval + ", url=" + url
-				+ ", userCode=" + userCode + ", userPass=" + userPass + "]";
+				+ ", userCode=" + userCode + ", userPass=" + userPass
+				+ ", channal=" + channal + "]";
 	}
 	public int getSendPause() {
 		return sendPause;
@@ -88,6 +94,30 @@ public class Config {
 	}
 	public void setPackMax(int packMax) {
 		this.packMax = packMax;
+	}
+	public int getSendThread() {
+		return sendThread;
+	}
+	public void setSendThread(int sendThread) {
+		this.sendThread = sendThread;
+	}
+	public String getChannal() {
+		return channal;
+	}
+	public void setChannal(String channal) {
+		this.channal = channal;
+	}
+	public int getPackMin() {
+		return packMin;
+	}
+	public void setPackMin(int packMin) {
+		this.packMin = packMin;
+	}
+	public int getSendMax() {
+		return sendMax;
+	}
+	public void setSendMax(int sendMax) {
+		this.sendMax = sendMax;
 	}
 	
 }

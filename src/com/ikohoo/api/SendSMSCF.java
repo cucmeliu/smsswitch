@@ -23,6 +23,25 @@ public class SendSMSCF {
 	static Logger logger = Logger.getLogger(SendSMSCF.class);
 	private String url; // "http://h.1069106.com:1210/Services/MsgSend.asmx/SendMsg";
 	private Config config;
+	
+	/**
+	 * 触发发送短信命令
+	 */
+	public static final String SendMsg = "SendMsg";
+	/**
+	 * 触发发送个性化短信命令
+	 */
+	public static final String SendIndividualMsg = "SendIndividualMsg";
+	
+	/** 云信url到http://yes.itissm.com/api/
+	 *  云信发送短信命令
+	 */
+	public static final String sendMes = "MsgSend.asmx/sendMes";
+	/**
+	 *  云信发送个性化短信命令
+	 */
+	public static final String IndividualSm = "IndividualSm.aspx";
+	
 
 	public SendSMSCF(Config config) {
 		super();
@@ -30,14 +49,14 @@ public class SendSMSCF {
 		//url = config.getUrl() + "SendMsg";
 	}
 
-
 	/**
 	 * 发送短信
 	 * @param msg
 	 * @return 批次号
+	 * @throws Exception 
 	 */
-	public long send(SMSSendParams msg) {
-		url = config.getUrl() + "SendMsg";
+	public String send(SMSSendParams msg, String cmd) throws Exception {
+		url = config.getUrl() +  cmd;//"SendMsg";
 		
 		String str = "";
 		try {
@@ -67,9 +86,10 @@ public class SendSMSCF {
 			return SMSUtils.parseSendSMSReturn(str);
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			logger.error(e.getStackTrace());
-			return SMSUtils.RETURN_ERROR_UNKNOWN;
+			//e.printStackTrace();
+			//logger.error(e);
+			throw e;
+			//return SMSUtils.RETURN_ERROR_UNKNOWN;
 		}
 	}
 
@@ -77,10 +97,11 @@ public class SendSMSCF {
 	 * 打包发送
 	 * @param msg
 	 * @return 批次号
+	 * @throws Exception 
 	 */
-	public long sendPack(SMSSendParams msg) {
+	public String sendPack(SMSSendParams msg, String cmd) throws Exception {
 		
-		url = config.getUrl() + "SendIndividualMsg";
+		url = config.getUrl() +  cmd; //"SendIndividualMsg";
 		String str = "";
 		try {
 			System.out.println("Sending pack: " + msg.toString());
@@ -108,9 +129,10 @@ public class SendSMSCF {
 			return SMSUtils.parseSendSMSReturn(str);
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			logger.error(e.getStackTrace());
-			return SMSUtils.RETURN_ERROR_UNKNOWN;
+			//e.printStackTrace();
+			//logger.error(e);
+			throw e;
+			//return SMSUtils.RETURN_ERROR_UNKNOWN;
 		}
 	}
 
@@ -121,7 +143,7 @@ public class SendSMSCF {
 	 * @return
 	 * @deprecated
 	 */
-	public long sendTest(SMSSendParams msg) {
+	public String sendTest(SMSSendParams msg) {
 		// System.out.println("send msg: " + msg.toString());
 		String str = null;
 		Random r = new Random();
@@ -133,13 +155,11 @@ public class SendSMSCF {
 				+ "<string xmlns=\"http://tempuri.org/\">"+(-1-r.nextInt(17))+"</string>";
 		}
 //		long start = System.currentTimeMillis();
-		long ret = SMSUtils.parseSendSMSReturn(str);
+		String ret = SMSUtils.parseSendSMSReturn(str);
 //		System.out.println("parse cost: " + (System.currentTimeMillis()-start) + " ms");
 		// System.out.println("return: " + ret);
 		return ret;
 	}
-	
-
 	
 	
 }

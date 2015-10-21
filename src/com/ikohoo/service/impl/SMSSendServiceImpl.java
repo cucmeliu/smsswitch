@@ -1,5 +1,6 @@
 package com.ikohoo.service.impl;
 
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -18,32 +19,68 @@ import com.ikohoo.util.SMSUtils;
 
 public class SMSSendServiceImpl implements SMSSendService {
 	static Logger logger = Logger.getLogger(SMSSendServiceImpl.class);
-	
+
 	SMSSendDao dao = BasicFactory.getFactory().getInstance(SMSSendDao.class);
 	static long fromId = 0;
 	static long toId = 0;
 	private Config config;
 
-	// private int count;
-
 	@Override
 	public List<SMSSendBean> getNewSMS(int count) {
-		return dao.getNewSMS(count);
+		try {
+			return dao.getNewSMS(count);
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+			return null;
+		}
+	}
+
+	@Override
+	public List<SMSSendBean> getNewSMS(int count, int mod, int remainder) {
+		try {
+			return dao.getNewSMS(count, mod, remainder);
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+			return null;
+		}
 	}
 
 	@Override
 	public int[] updateState2DB(List<SMSSendBean> list) {
-		return dao.updateSendState(list);
+		try {
+			return dao.updateSendState(list);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			logger.error(e);
+		}
+		return null;
 	}
 
 	@Override
 	public int insert2DB(SMSSendBean record) {
-		return dao.insert(record);
+		try {
+			return dao.insert(record);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			logger.error(e);
+		}
+		return 0;
 	}
 
 	@Override
 	public int insert2DB(List<SMSSendBean> list) {
-		int[] a = dao.insert(list);
+		int[] a;
+		try {
+			a = dao.insert(list);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			logger.error(e);
+			return 0;
+		}
+
 		int sum = 0;
 		for (int i = 0; i < a.length; i++)
 			sum += a[i];
@@ -69,7 +106,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 		SMSSendBean ss = null;
 		int count = 0;
 		for (Iterator<SMSSendBean> it = list.iterator(); it.hasNext()
-				&& count++ < config.getPackMax(); ) {
+				&& count++ < config.getPackMax();) {
 			ss = it.next();
 			if (!isDuplicatPhone(rst, ss.getPhone())) {
 				rst.add(ss);
@@ -82,14 +119,13 @@ public class SMSSendServiceImpl implements SMSSendService {
 	@Override
 	public int packSend(List<SMSSendBean> list) {
 		List<SMSSendBean> rstList = new ArrayList<SMSSendBean>();
-		//System.out.println("*****重点测试*****，超过50条时，是否正确拼接＊＊＊＊");
 		int count = 0;
 		try {
 			while (list.size() > 0) {
 				List<SMSSendBean> oneList = new ArrayList<SMSSendBean>(
 						getOnePack(list));
 
-				System.out.println("One pack ..size: " + oneList.size());
+				// System.out.println("One pack ..size: " + oneList.size());
 				logger.info("One pack ..size: " + oneList.size());
 
 				count += sendOnePack(oneList);
@@ -97,16 +133,12 @@ public class SMSSendServiceImpl implements SMSSendService {
 				// 每两条发送，间隔一个时间
 				Thread.sleep(config.getSendPause());
 				System.out.println("sleep " + config.getSendPause() + " ms");
-				
-//				for (SMSSendBean ssb : oneList) {
-//					System.out.println(ssb.toString());
-//					logger.info(ssb.toString());
-//				}
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			logger.error(e.getStackTrace());
-			throw new RuntimeException(e);
+			logger.error(e);
+			// throw new RuntimeException(e);
 		}
 
 		// 做为返回引用，传回去
@@ -116,7 +148,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 	}
 
 	@Override
-	public int sendOnePack(List<SMSSendBean> list) {
+	public int sendOnePack(List<SMSSendBean> list) throws Exception {
 		SendSMSCF sendSms = new SendSMSCF(config);
 		StringBuilder sb = new StringBuilder("");
 		for (SMSSendBean ssb : list) {
@@ -124,21 +156,21 @@ public class SMSSendServiceImpl implements SMSSendService {
 					.append("|-|");
 		}
 
-		sb.delete(sb.length()-3, sb.length());
-		
+		sb.delete(sb.length() - 3, sb.length());
+
 		SMSSendParams msg = new SMSSendParams();
 		msg.setChannel(SMSSendParams.channelSMS);
 		msg.setMsg(sb.toString());
-		System.out.println("send one packet: " + sb.toString());
+		// System.out.println("send one packet: " + sb.toString());
 		logger.info("send one packet: " + sb.toString());
 
-		long sendrst = sendSms.sendPack(msg);
+		String sendrst = sendSms.sendPack(msg, SendSMSCF.SendIndividualMsg);
 		// TODO 测试使用，发布时改为上面的语句
 		// long sendrst = sendSms.sendTest(msg);
 
 		int state;
-		if (sendrst < 0) {
-			state = (int) sendrst;
+		if (Integer.parseInt(sendrst) < 0) {
+			state = Integer.parseInt(sendrst);
 		} else {
 			state = SMSSendBean.STATE_SUBSUCC;
 		}
@@ -168,14 +200,24 @@ public class SMSSendServiceImpl implements SMSSendService {
 			msg.setMsg(ss.getContent());
 			msg.setChannel(SMSSendParams.channelSMS);
 
-			long sendRst = sendSms.send(msg);
+			String sendRst;
+			try {
+				sendRst = sendSms.send(msg, SendSMSCF.SendMsg);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				logger.error(e);
+				sendRst = "";
+			}
+
 			// TODO 测试使用，发布时改为上面的语句
 			// long sendRst = sendSms.sendTest(msg);
 			// if (batchNumber>0)
 			// { 不论返回批次号还是失败码，都更新，
 			ss.setSendtime(new Timestamp(System.currentTimeMillis()));
-			if (sendRst < 0) {
-				ss.setState((int) sendRst);
+
+			if (Integer.parseInt(sendRst) <= 0) {
+				ss.setState(Integer.parseInt(sendRst));
 			} else {
 				ss.setState(SMSSendBean.STATE_SUBSUCC);
 				ss.setStatcode(sendRst);
@@ -207,12 +249,34 @@ public class SMSSendServiceImpl implements SMSSendService {
 				it.remove();
 			}
 		}
+		// update 原数据表
 		int[] a = updateState2DB(sentList);
+
 		int rst = 0;
 		for (int i = 0; i < a.length; i++)
 			rst += a[i];
 
 		return rst;
+	}
+
+	private int[] deleteSent(List<SMSSendBean> list) {
+		try {
+			return dao.delSentRec(list);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			logger.error(e);
+		}
+		return null;
+	}
+
+	private int[] insertSent(List<SMSSendBean> list) {
+		try {
+			return dao.insSentRec(list);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			logger.error(e);
+		}
+		return null;
 	}
 
 	@Override
@@ -221,4 +285,176 @@ public class SMSSendServiceImpl implements SMSSendService {
 
 	}
 
+	/**
+	 * 拼云信的普通短信包：内容相同，号码拼包
+	 * 
+	 * @param list
+	 * @return
+	 */
+	private List<SMSSendParams> parseYunXinSmsList(List<SMSSendBean> list) {
+		List<SMSSendParams> ret = new ArrayList<SMSSendParams>();
+
+		if (null == list || 0 == list.size())
+			return null;
+
+		// 简化，连续的相同内容短信作为一条，不连续的即使内容相同也当成几条处理
+		int count = 0;
+		Boolean started = false;
+		String msg = null;
+		SMSSendBean ss;
+		SMSSendParams ssp = null;
+		StringBuilder sb = new StringBuilder();
+		// SMSSendBean lastIt = null;
+
+		// 拼相同内容的包
+		while (list.size() > 0) {
+			for (Iterator<SMSSendBean> it = list.iterator(); it.hasNext();) {
+				ss = it.next();
+				if (!started || count > config.getSendMax()) {
+					count = 0;
+					started = true;
+
+					ssp = new SMSSendParams();
+					ret.add(ssp);
+
+					msg = ss.getContent();
+					ssp.setMsg(msg);
+					ssp.setChannel(config.getChannal());
+					sb.append(ss.getPhone()).append(",");
+
+				} else {
+					if (ss.getContent().equals(msg)) {
+						sb.append(ss.getPhone()).append(",");
+					}
+				}
+				it.remove();
+				count++;
+			}
+
+			// 去掉最后的逗号
+			sb.delete(sb.length() - 1, sb.length());
+			ssp.setDestNo(sb.toString());
+
+			// 相同内容的短信少于packMin后，采用个性化发送
+			if (count < config.getPackMin()) {
+				break;
+			}
+		}
+
+		return ret;
+	}
+
+	private List<SMSSendParams> parseYunXinIndividualList(List<SMSSendBean> list) {
+
+		if (null == list || 0 == list.size())
+			return null;
+
+		// 拼个性化包
+		List<SMSSendParams> ret = new ArrayList<SMSSendParams>();
+		SMSSendParams ssp;
+		try {
+			while (list.size() > 0) {
+				ssp = new SMSSendParams();
+				ssp.setChannel(config.getChannal());
+				ssp.setMsg(getOneYunXinPackStr(list));
+
+				ret.add(ssp);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e);
+		}
+		return ret;
+	}
+
+	/**
+	 * 拼一个个性化的短信内容字符串
+	 * 
+	 * @param list
+	 * @return
+	 */
+	private String getOneYunXinPackStr(List<SMSSendBean> list) {
+		SMSSendBean ss = null;
+		int count = 0;
+		StringBuilder sb = new StringBuilder();
+		for (Iterator<SMSSendBean> it = list.iterator(); it.hasNext()
+				&& count++ < config.getPackMax();) {
+			ss = it.next();
+
+			sb.append(ss.getPhone()).append("|!|").append(ss.getContent())
+					.append("|^|");
+
+			it.remove();
+		}
+		return sb.toString();
+	}
+
+	@Override
+	public int sendYunXin(List<SMSSendBean> list) {
+
+		if (null == list || list.size() == 0)
+			return 0;
+
+		// 先按电话号码打包
+		SendSMSCF sendSms = new SendSMSCF(config);
+		List<SMSSendParams> yxList = parseYunXinSmsList(list);
+		if (null != yxList) {
+			try {
+				for (SMSSendParams ssp : yxList) {
+					logger.info("sending yunxin sms: " + ssp.toString());
+					sendSms.send(ssp, "sendMes");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(e);
+			}
+		}
+
+		// 剩下的按个性化打包
+		yxList = parseYunXinIndividualList(list);
+		if (null != yxList) {
+			try {
+				for (SMSSendParams ssp : yxList) {
+					logger.info("sending individual: " + ssp.toString());
+					sendSms.sendPack(ssp, SendSMSCF.IndividualSm);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error(e);
+			}
+		}
+		return 0;
+	}
+
+	@Override
+	public int dealSentSMSYunXin(List<SMSSendBean> list) {
+		List<SMSSendBean> sentList = new ArrayList<SMSSendBean>();
+
+		SMSSendBean ss;
+		for (Iterator<SMSSendBean> it = list.iterator(); it.hasNext();) {
+			ss = it.next();
+			if (ss.getState() != 0) {
+				sentList.add(ss);
+				it.remove();
+			}
+		}
+		//
+		long start = System.currentTimeMillis();
+		int[] a = insertSent(sentList);
+		int rst = 0;
+		for (int i = 0; i < a.length; i++)
+			rst += a[i];
+		logger.info("  insert sent record : " + rst + " ，Cost time: "
+				+ (System.currentTimeMillis() - start) + " ms\n");
+
+		start = System.currentTimeMillis();
+		a = deleteSent(sentList);
+		rst = 0;
+		for (int i = 0; i < a.length; i++)
+			rst += a[i];
+		logger.info("  delete sent record : " + rst + " ，Cost time: "
+				+ (System.currentTimeMillis() - start) + " ms\n");
+
+		return rst;
+	}
 }

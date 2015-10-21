@@ -26,7 +26,7 @@ public class SendSMSTester {
 //		
 //	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		Config config = ConfigReader.loadConfig();
 		SendSMSCF sendSMS = new SendSMSCF(config);
@@ -45,7 +45,7 @@ public class SendSMSTester {
 			msg.setChannel("0");
 			msg.setDestNo(p);
 			msg.setMsg("测试程序中，收到的话不用回复我，你的验证码是6666【云信留客】");
-			sendSMS.send(msg);
+			sendSMS.send(msg, "SendMsg");
 		}
 		
 

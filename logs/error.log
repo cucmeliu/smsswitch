@@ -1,0 +1,10 @@
+2015-10-19 20:56:56,291 ERROR [com.ikohoo.util.ConfigReader] - java.io.FileNotFoundException: /project.properties (No such file or directory)
+2015-10-19 20:58:02,215 ERROR [com.ikohoo.util.ConfigReader] - java.io.FileNotFoundException: /Users/apple/GitHub/SMSSwitch\project.properties (No such file or directory)
+2015-10-19 20:58:24,408 ERROR [com.ikohoo.util.ConfigReader] - java.io.FileNotFoundException: /Users/apple/GitHub/SMSSwitch/project.properties (No such file or directory)
+2015-10-19 21:11:31,759 ERROR [com.ikohoo.util.ConfigReader] - java.io.FileNotFoundException: /Users/apple/GitHub/SMSSwitch/project.properties (No such file or directory)
+2015-10-20 22:44:26,493 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
+2015-10-20 22:44:29,526 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
+2015-10-20 22:47:12,258 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
+2015-10-20 22:47:13,697 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
+2015-10-20 22:48:29,585 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
+2015-10-20 22:48:31,415 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
