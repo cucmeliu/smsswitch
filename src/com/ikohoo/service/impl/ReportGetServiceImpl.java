@@ -91,6 +91,7 @@ public class ReportGetServiceImpl implements ReportGetService {
 	public int insert2DB(List<ReportGetBean> list) {
 		int[] a;
 		try {
+			//dao.setTable(config.getTableRept());
 			a = dao.insert(list);
 
 			if (null==a)
@@ -136,6 +137,7 @@ public class ReportGetServiceImpl implements ReportGetService {
 	@Override
 	public void setConfig(Config config) {
 		this.config = config;
+		dao.setTable(config.getTableRept());
 
 	}
 }

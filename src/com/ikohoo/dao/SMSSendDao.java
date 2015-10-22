@@ -6,6 +6,10 @@ import java.util.List;
 import com.ikohoo.domain.SMSSendBean;
 
 public interface SMSSendDao {
+	
+//	public void setConfig(Config config);
+	public void setTable(String table);
+	
 	/**
 	 * 从发送表中取出待发送的内容
 	 * @return

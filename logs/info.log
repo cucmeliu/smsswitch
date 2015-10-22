@@ -31791,3 +31791,145 @@ SMSSend [id=15996, phone=13311119109, content=content-7998, intime=2015-10-19 21
 2015-10-22 00:39:20,945 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
 2015-10-22 00:39:20,945 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
 
+2015-10-22 20:57:00,004 INFO [com.ikohoo.main.SMSMain] - =======================================
+2015-10-22 20:57:00,007 INFO [com.ikohoo.main.SMSMain] - ==========program start================
+2015-10-22 20:57:00,011 INFO [com.ikohoo.main.SMSMain] - Config [sendInterval=10000, sendCount=1000, sendPause=10, sendThread=1, packMax=50, packMin=3, sendMax=500, recvInterval=30000, getReportInterval=30000, url=http://h.1069106.com:1210/Services/MsgSend.asmx/, userCode=JSCS, userPass=JSCS2015, channal=0, tableSend=send_sf, tableRecv=receivesms_sf, tableRept=stat_sf]
+2015-10-22 20:57:00,018 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:57:00,020 INFO [com.ikohoo.main.GetRecvBiz] - --------------Get Recv SMS---------------
+
+2015-10-22 20:57:00,026 INFO [com.ikohoo.main.GetReportBiz] - --------------Get Report---------------
+
+2015-10-22 20:57:00,056 INFO [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-10-22 20:57:00,330 INFO [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-10-22 20:57:00,546 INFO [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge1639c13um9yy13qm8ho|1aaa5766, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge1639c13um9yy13qm8ho|1aaa5766, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql:///SMSUtil, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-10-22 20:57:00,704 INFO [com.ikohoo.main.GetReportBiz] - No new report get, wait for next loop...
+2015-10-22 20:57:00,704 INFO [com.ikohoo.main.GetReportBiz] - ---------------------------------------
+
+2015-10-22 20:57:00,704 INFO [com.ikohoo.main.GetRecvBiz] - No new sms received, wait for next loop...
+2015-10-22 20:57:00,961 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:57:00,961 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:57:10,022 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:57:10,024 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:57:10,024 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:57:20,024 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:57:20,026 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:57:20,026 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:57:28,766 INFO [com.ikohoo.main.SMSMain] - =======================================
+2015-10-22 20:57:28,767 INFO [com.ikohoo.main.SMSMain] - ==========program start================
+2015-10-22 20:57:28,768 INFO [com.ikohoo.main.SMSMain] - Config [sendInterval=3000, sendCount=1000, sendPause=10, sendThread=1, packMax=50, packMin=3, sendMax=500, recvInterval=30000, getReportInterval=30000, url=http://h.1069106.com:1210/Services/MsgSend.asmx/, userCode=JSCS, userPass=JSCS2015, channal=0, tableSend=send_sf, tableRecv=receivesms_sf, tableRept=stat_sf]
+2015-10-22 20:57:28,774 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:57:28,776 INFO [com.ikohoo.main.GetRecvBiz] - --------------Get Recv SMS---------------
+
+2015-10-22 20:57:28,780 INFO [com.ikohoo.main.GetReportBiz] - --------------Get Report---------------
+
+2015-10-22 20:57:28,806 INFO [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-10-22 20:57:29,044 INFO [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-10-22 20:57:29,199 INFO [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge1639c13umw5ec2p9k5|2488ffe8, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge1639c13umw5ec2p9k5|2488ffe8, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql:///SMSUtil, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-10-22 20:57:29,415 INFO [com.ikohoo.main.GetReportBiz] - No new report get, wait for next loop...
+2015-10-22 20:57:29,415 INFO [com.ikohoo.main.GetReportBiz] - ---------------------------------------
+
+2015-10-22 20:57:29,509 INFO [com.ikohoo.main.GetRecvBiz] - No new sms received, wait for next loop...
+2015-10-22 20:57:29,556 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:57:29,556 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:57:31,780 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:57:31,781 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:57:31,781 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:57:34,781 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:57:34,783 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:57:34,783 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:57:37,782 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:57:37,784 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:57:37,784 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:57:40,783 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:57:40,784 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:57:40,784 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:57:43,785 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:57:43,786 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:57:43,786 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:57:46,790 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:57:46,791 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:57:46,791 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:57:49,796 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:57:49,797 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:57:49,797 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:57:52,797 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:57:52,799 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:57:52,799 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:57:55,801 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:57:55,803 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:57:55,803 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:57:58,779 INFO [com.ikohoo.main.GetRecvBiz] - --------------Get Recv SMS---------------
+
+2015-10-22 20:57:58,785 INFO [com.ikohoo.main.GetReportBiz] - --------------Get Report---------------
+
+2015-10-22 20:57:58,801 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:57:58,802 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:57:58,802 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:57:58,805 INFO [com.ikohoo.main.GetRecvBiz] - No new sms received, wait for next loop...
+2015-10-22 20:57:58,812 INFO [com.ikohoo.main.GetReportBiz] - No new report get, wait for next loop...
+2015-10-22 20:57:58,812 INFO [com.ikohoo.main.GetReportBiz] - ---------------------------------------
+
+2015-10-22 20:58:01,804 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:58:01,806 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:58:01,806 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:58:04,805 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:58:04,806 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:58:04,806 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 20:58:07,806 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 20:58:07,808 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 20:58:07,808 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 21:13:19,560 INFO [com.ikohoo.main.SMSMain] - =======================================
+2015-10-22 21:13:19,562 INFO [com.ikohoo.main.SMSMain] - ==========program start================
+2015-10-22 21:13:19,566 INFO [com.ikohoo.main.SMSMain] - Config [sendInterval=3000, sendCount=1000, sendPause=10, sendThread=1, packMax=50, packMin=3, sendMax=500, recvInterval=30000, getReportInterval=30000, url=http://h.1069106.com:1210/Services/MsgSend.asmx/, userCode=JSCS, userPass=JSCS2015, channal=0, tableSend=send_sf, tableRecv=receivesms_sf, tableRept=stat_sf]
+2015-10-22 21:13:19,577 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 21:13:19,594 INFO [com.ikohoo.main.GetRecvBiz] - --------------Get Recv SMS---------------
+
+2015-10-22 21:13:19,599 INFO [com.ikohoo.main.GetReportBiz] - --------------Get Report---------------
+
+2015-10-22 21:13:19,619 INFO [com.mchange.v2.log.MLog] - MLog clients using log4j logging.
+2015-10-22 21:13:19,881 INFO [com.mchange.v2.c3p0.C3P0Registry] - Initializing c3p0-0.9.1.2 [built 21-May-2007 15:04:56; debug? true; trace: 10]
+2015-10-22 21:13:20,068 INFO [com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource] - Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, dataSourceName -> 1hge1639c13v79st698co7|572928f7, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, identityToken -> 1hge1639c13v79st698co7|572928f7, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql:///SMSUtil, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 0, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 15, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 3, numHelperThreads -> 3, numThreadsAwaitingCheckoutDefaultUser -> 0, preferredTestQuery -> null, properties -> {user=******, password=******}, propertyCycle -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, usesTraditionalReflectiveProxies -> false ]
+2015-10-22 21:13:20,288 INFO [com.ikohoo.main.GetReportBiz] - No new report get, wait for next loop...
+2015-10-22 21:13:20,289 INFO [com.ikohoo.main.GetReportBiz] - ---------------------------------------
+
+2015-10-22 21:13:20,289 INFO [com.ikohoo.main.GetRecvBiz] - No new sms received, wait for next loop...
+2015-10-22 21:13:20,431 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 21:13:20,431 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 21:13:22,583 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 21:13:22,584 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 21:13:22,585 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 21:13:25,584 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 21:13:25,586 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 21:13:25,586 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 21:13:28,587 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 21:13:28,591 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 21:13:28,591 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 21:13:31,590 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 21:13:31,591 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 21:13:31,591 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+
+2015-10-22 21:13:34,595 INFO [com.ikohoo.main.SendSMSBiz] - thread # [ 0 ] --------Send SMS--------
+2015-10-22 21:13:34,596 INFO [com.ikohoo.main.SendSMSBiz] - # [ 0 ] No new sms to send, wait for next loop...
+2015-10-22 21:13:34,596 INFO [com.ikohoo.main.SendSMSBiz] - ---------------------------------------
+

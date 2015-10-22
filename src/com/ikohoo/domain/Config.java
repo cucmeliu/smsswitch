@@ -3,20 +3,64 @@ package com.ikohoo.domain;
 public class Config {
 
 	private int sendInterval;
+	private int recvInterval;
+	private int getReportInterval;
+	
 	private int sendCount;
 	private int sendPause;
 	private int sendThread;
+	
 	private int packMax;
 	private int packMin;
 	private int sendMax;
-	private int recvInterval;
-	private int getReportInterval;
+
 	private String url;
 	private String userCode;
 	private String userPass;
 	private String channal;
 	
+	private String tableSend;
+	private String tableRecv;
+	private String tableRept;
 	
+	public Config() {
+		super();
+		sendInterval = 2000;
+		recvInterval = 2000;
+		getReportInterval = 2000;
+		sendCount = 100;
+		sendPause = 2;
+		sendThread = 8;
+		packMax = 50;
+		packMin = 10;
+		sendMax = 500;
+		url = "http://h.1069106.com:1210/Services/MsgSend.asmx/";
+		userCode = "JSCS";
+		userPass = "JSCS2015";
+		
+		tableSend="send_sf";
+		tableRecv="receivesms_sf";
+		tableRept="stat_sf";
+	}
+	
+	public String getTableSend() {
+		return tableSend;
+	}
+	public void setTableSend(String tableSend) {
+		this.tableSend = tableSend;
+	}
+	public String getTableRecv() {
+		return tableRecv;
+	}
+	public void setTableRecv(String tableRecv) {
+		this.tableRecv = tableRecv;
+	}
+	public String getTableRept() {
+		return tableRept;
+	}
+	public void setTableRept(String tableRept) {
+		this.tableRept = tableRept;
+	}
 	public int getGetReportInterval() {
 		return getReportInterval;
 	}
@@ -48,18 +92,7 @@ public class Config {
 	public void setUserPass(String userPass) {
 		this.userPass = userPass;
 	}
-	public Config() {
-		super();
-		sendInterval = 2000;
-		recvInterval = 2000;
-		getReportInterval = 2000;
-		sendCount = 100;
-		sendPause = 2;
-		packMax = 50;
-		url = "http://h.1069106.com:1210/Services/MsgSend.asmx/";
-		userCode = "JSCS";
-		userPass = "JSCS2015";
-	}
+	
 	public String getUrl() {
 		return url;
 	}
@@ -81,7 +114,8 @@ public class Config {
 				+ ", sendMax=" + sendMax + ", recvInterval=" + recvInterval
 				+ ", getReportInterval=" + getReportInterval + ", url=" + url
 				+ ", userCode=" + userCode + ", userPass=" + userPass
-				+ ", channal=" + channal + "]";
+				+ ", channal=" + channal + ", tableSend=" + tableSend
+				+ ", tableRecv=" + tableRecv + ", tableRept=" + tableRept + "]";
 	}
 	public int getSendPause() {
 		return sendPause;

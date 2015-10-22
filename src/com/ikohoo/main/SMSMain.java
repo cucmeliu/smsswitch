@@ -32,7 +32,7 @@ public class SMSMain {
 		byte startModu = 0x0; // 要开启的功能，1 send, 2 recv, 4 rept, 8 test
 
 		if (args.length == 0) {
-			// 默认不开test，其他都开
+			// 默认开 send, recv, rept
 			startModu = 0x7;
 			System.out.println("start all true function");
 		} else {

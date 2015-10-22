@@ -4,17 +4,20 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+
 import com.ikohoo.dao.SMSRecvDao;
 import com.ikohoo.domain.SMSRecvBean;
 import com.ikohoo.util.DaoUtils;
 
 public class SMSRecvDaoImpl implements SMSRecvDao {
+	private String table = "rept";
+
 	//static Logger logger = Logger.getLogger(SMSRecvDaoImpl.class);
 
 	@Override
 	public int[] insert(List<SMSRecvBean> list) throws SQLException {
 								// id, phone,content,sendtime, systime
-		String sql = " INSERT INTO  receivesms_sf VALUES (null, ?, ?, ?, ?) ";
+		String sql = " INSERT INTO   " + table + "  VALUES (null, ?, ?, ?, ?) ";
 		try {
 			QueryRunner runner = new QueryRunner(DaoUtils.getSource());
 			Object[][] params = new Object[list.size()][4];
@@ -36,6 +39,11 @@ public class SMSRecvDaoImpl implements SMSRecvDao {
 			return null;
 		}
 
+	}
+
+	@Override
+	public void setTable(String table) {
+		this.table  = table;
 	}
 
 }

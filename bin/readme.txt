@@ -3,7 +3,12 @@
 	将程序压缩包smsSwitch.tar复制到任意有权限访问的路径，如/home/，使用命令以下命令解压：
 		tar xzvf smsSwitch.tar.gz
 	在Linux的shell模式下，进入解压目录，执行以下命令运行程序
+	使用触发接口
 		./startSmsSwitch.sh
+	使用云信接口
+		./startYunxinSmsSwitch.sh
+ ~~## 停止程序  
+ 		./stopSmsSwitch
 
 2. 如需修改各种配置，直接在解压目录下进行修改
 

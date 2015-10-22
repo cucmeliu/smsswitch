@@ -44,11 +44,11 @@ public class ConfigReader {
 			
 			config.setSendThread(Integer.parseInt(prop.getProperty(
 					"send-thread", 8 + "")));
-
 			config.setSendCount(Integer.parseInt(prop.getProperty(
 					"send-count", 1000 + "")));
 			config.setSendPause(Integer.parseInt(prop.getProperty(
 					"send-pause", 10 + "")));
+			
 			config.setPackMax(Integer.parseInt(prop.getProperty(
 					"pack-max", 50 + "")));
 			config.setPackMin(Integer.parseInt(prop.getProperty(
@@ -64,6 +64,10 @@ public class ConfigReader {
 					"userpass", "JSCS2015"));
 			config.setChannal(prop.getProperty(
 					"channal", "0"));
+			
+			config.setTableSend(prop.getProperty("table-send","send_sf"));
+			config.setTableRecv(prop.getProperty("table-recv","receivesms_sf"));
+			config.setTableRept(prop.getProperty("table-rept","stat_sf"));
 
 		} catch (Exception e) {
 			e.printStackTrace();;

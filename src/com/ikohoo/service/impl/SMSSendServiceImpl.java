@@ -3,7 +3,6 @@ package com.ikohoo.service.impl;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -24,13 +23,14 @@ public class SMSSendServiceImpl implements SMSSendService {
 	static Logger logger = Logger.getLogger(SMSSendServiceImpl.class);
 
 	SMSSendDao dao = BasicFactory.getFactory().getInstance(SMSSendDao.class);
-	static long fromId = 0;
-	static long toId = 0;
+	//static long fromId = 0;
+	//static long toId = 0;
 	private Config config;
 
 	@Override
 	public List<SMSSendBean> getNewSMS(int count) {
 		try {
+			//dao.setTable(config.getTableSend());
 			return dao.getNewSMS(count);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -42,6 +42,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 	@Override
 	public List<SMSSendBean> getNewSMS(int count, int mod, int remainder) {
 		try {
+			//dao.setTable(config.getTableSend());
 			return dao.getNewSMS(count, mod, remainder);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -53,6 +54,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 	@Override
 	public int[] updateState2DB(List<SMSSendBean> list) {
 		try {
+			//dao.setTable(config.getTableSend());
 			return dao.updateSendState(list);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -64,6 +66,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 	@Override
 	public int insert2DB(SMSSendBean record) {
 		try {
+			//dao.setTable(config.getTableSend());
 			return dao.insert(record);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -76,6 +79,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 	public int insert2DB(List<SMSSendBean> list) {
 		int[] a;
 		try {
+			//dao.setTable(config.getTableSend());
 			a = dao.insert(list);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -262,6 +266,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 
 	private int[] deleteSent(List<SMSSendBean> list) {
 		try {
+			//dao.setTable(config.getTableSend());
 			return dao.delSentRec(list);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -272,6 +277,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 
 	private int[] insertSent(List<SMSSendBean> list) {
 		try {
+			//dao.setTable(config.getTableSend());
 			return dao.insSentRec(list);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -283,6 +289,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 	@Override
 	public void setConfig(Config config) {
 		this.config = config;
+		dao.setTable(config.getTableSend());
 
 	}
 

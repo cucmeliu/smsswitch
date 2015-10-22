@@ -80,6 +80,7 @@ public class SMSRecvServiceImpl implements SMSRecvService {
 	public int insert2DB(List<SMSRecvBean> list) {
 		int[] a;
 		try {
+			
 			a = dao.insert(list);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -119,6 +120,7 @@ public class SMSRecvServiceImpl implements SMSRecvService {
 	@Override
 	public void setConfig(Config config) {
 		this.config = config;
+		dao.setTable(config.getTableRecv());
 
 	}
 

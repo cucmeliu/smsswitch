@@ -4,18 +4,21 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
+
 import com.ikohoo.dao.ReportGetDao;
 import com.ikohoo.domain.ReportGetBean;
 import com.ikohoo.util.DaoUtils;
 
 public class ReportGetDaoImpl implements ReportGetDao {
 
+	private String table="rept";
+
 	//static Logger logger = Logger.getLogger(ReportGetDaoImpl.class);
 
 	@Override
 	public int[] insert(List<ReportGetBean> list) throws SQLException {
 		// id, phone,statcode,statmsg,smsid,sendtime
-		String sql = " INSERT INTO  stat_sf VALUES (null, ?, ?, ?, ?, ?) ";
+		String sql = " INSERT INTO   " + table + "  VALUES (null, ?, ?, ?, ?, ?) ";
 		try {
 			QueryRunner runner = new QueryRunner(DaoUtils.getSource());
 			Object[][] params = new Object[list.size()][5];
@@ -36,6 +39,11 @@ public class ReportGetDaoImpl implements ReportGetDao {
 			//e.printStackTrace();
 			return null;
 		}
+	}
+
+	@Override
+	public void setTable(String table) {
+		this.table = table;
 	}
 
 }
