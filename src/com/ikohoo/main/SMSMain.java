@@ -34,7 +34,7 @@ public class SMSMain {
 		if (args.length == 0) {
 			// 默认开 send, recv, rept
 			startModu = 0x7;
-			System.out.println("start all true function");
+			//System.out.println("start all true function");
 		} else {
 			for (int i = 0; i < args.length; i++) {
 				if ("send".equals(args[i]))
@@ -51,10 +51,15 @@ public class SMSMain {
 					startModu |= 0x1f;
 			}
 		}
+		
+		if (((startModu & 0x1) !=0) && ((startModu & 0x8)!=0)) {
+			logger.error(" !! You cannot start ChuFa & YunXin send interface at the same time .... !! ");
+			return;
+		}
 
 		if ((startModu & 0x1) != 0) {
 			// 处理发送短信进程，
-			System.out.println("start send sms thread ---------->>>>> [ "
+			logger.info("start send sms thread ---------->>>>> total [ "
 					+ config.getSendThread() + " ] thread");
 
 			for (int i = 0; i < config.getSendThread(); i++) {
@@ -65,31 +70,37 @@ public class SMSMain {
 						config.getSendInterval());
 			}
 		}
+		if ((startModu & 0x8) != 0) {
+			logger.info("start yunxin send sms thread ---------->>>>> total [ "
+					+ config.getSendThread() + " ] thread");
+			
+			for (int i = 0; i < config.getSendThread(); i++) {
+				Timer timerSendSMS = new Timer();
+				SendSMSBizYunXin biz = new SendSMSBizYunXin(config);
+				biz.setRemainder(i);
+				timerSendSMS.schedule(biz, 0,
+						config.getSendInterval());
+			}
+		}
+		
 		if ((startModu & 0x2) != 0) {
 			// 处理回复短信
-			System.out.println("start get reply thread <<<<<----------");
+			logger.info("start get reply thread <<<<<----------");
 			Timer timerGetRecv = new Timer();
 			timerGetRecv.schedule(new GetRecvBiz(config), 0,
 					config.getRecvInterval());
 		}
 		if ((startModu & 0x4) != 0) {
 			// 处理报告状态
-			System.out.println("start get report thread <<<<<------>>>>>");
+			logger.info("start get report thread <<<<<------>>>>>");
 			Timer timerGetReport = new Timer();
 			timerGetReport.schedule(new GetReportBiz(config), 0,
 					config.getGetReportInterval());
 		}
 
-		if ((startModu & 0x8) != 0) {
-			System.out.println("~~~~start yunxin thread ~~~  ");
-			Timer t = new Timer();
-			t.schedule(new SendSMSBizYunXin(config), 0, 
-					config.getSendInterval());
-		}
-		
 		if ((startModu & 0x10) != 0) {
 			// TODO 发送信息表，测试，发布时去除下面的代码段
-			System.out.println("~~~~start test thread ~~~  ");
+			logger.info("~~~~start test thread ~~~  ");
 			Timer t = new Timer();
 			t.schedule(new DBTester(), 0, 3000);
 		}

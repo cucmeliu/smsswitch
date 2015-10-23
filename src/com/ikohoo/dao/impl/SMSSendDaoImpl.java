@@ -12,7 +12,7 @@ import com.ikohoo.util.DaoUtils;
 
 public class SMSSendDaoImpl implements SMSSendDao {
 
-	private String table = "send";
+	private String table = "send_sf";
 
 	// private Config config;
 

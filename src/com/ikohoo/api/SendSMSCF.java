@@ -27,20 +27,20 @@ public class SendSMSCF {
 	/**
 	 * 触发发送短信命令
 	 */
-	public static final String SendMsg = "SendMsg";
+	//public static final String SendMsg = "SendMsg";
 	/**
 	 * 触发发送个性化短信命令
 	 */
-	public static final String SendIndividualMsg = "SendIndividualMsg";
+	//public static final String SendIndividualMsg = "SendIndividualMsg";
 	
 	/** 云信url到http://yes.itissm.com/api/
 	 *  云信发送短信命令
 	 */
-	public static final String sendMes = "MsgSend.asmx/sendMes";
+	//public static final String sendMes = "MsgSend.asmx/sendMes";
 	/**
 	 *  云信发送个性化短信命令
 	 */
-	public static final String IndividualSm = "IndividualSm.aspx";
+	//public static final String IndividualSm = "IndividualSm.aspx";
 	
 
 	public SendSMSCF(Config config) {
@@ -59,10 +59,12 @@ public class SendSMSCF {
 		if (null == msg)
 			return "";
 		url = config.getUrl() +  cmd;//"SendMsg";
+		System.out.println("url: " + url);
+		System.out.println("msg: " + msg);
 		
 		String str = "";
 		try {
-			System.out.println("Sending: " + msg.toString());
+			//System.out.println("Sending: " + msg.toString());
 
 			// 创建HttpClient实例
 			HttpClient httpclient = new DefaultHttpClient();
@@ -71,8 +73,8 @@ public class SendSMSCF {
 			HttpPost httpPost = new HttpPost(url);
 			// 添加所需要的post内容
 			List<NameValuePair> nvps = new ArrayList<NameValuePair>();
-			nvps.add(new BasicNameValuePair("userCode", config.getUserCode())); // msg.getUserCode()));
-			nvps.add(new BasicNameValuePair("userPass", config.getUserPass())); // msg.getUserPass()));
+			nvps.add(new BasicNameValuePair("userCode", config.getUserCode())); 
+			nvps.add(new BasicNameValuePair("userPass", config.getUserPass())); 
 			nvps.add(new BasicNameValuePair("DesNo", msg.getDestNo()));
 			nvps.add(new BasicNameValuePair("Msg", msg.getMsg()));
 			nvps.add(new BasicNameValuePair("Channel", msg.getChannel()));
@@ -84,6 +86,8 @@ public class SendSMSCF {
 				InputStream instreams = entity.getContent();
 				str = SMSUtils.convertStreamToString(instreams);
 			}
+			
+			logger.info("send return: " + str);
 
 			return SMSUtils.parseSendSMSReturn(str);
 
@@ -104,9 +108,12 @@ public class SendSMSCF {
 	public String sendPack(SMSSendParams msg, String cmd) throws Exception {
 		
 		url = config.getUrl() +  cmd; //"SendIndividualMsg";
+		System.out.println("url: " + url);
+		System.out.println("msg: " + msg);
+		
 		String str = "";
 		try {
-			System.out.println("Sending pack: " + msg.toString());
+			//System.out.println("Sending pack: " + msg.toString());
 
 			// 创建HttpClient实例
 			HttpClient httpclient = new DefaultHttpClient();
@@ -128,6 +135,7 @@ public class SendSMSCF {
 				str = SMSUtils.convertStreamToString(instreams);
 			}
 
+			logger.info("send return: " + str);
 			return SMSUtils.parseSendSMSReturn(str);
 
 		} catch (Exception e) {
@@ -156,10 +164,8 @@ public class SendSMSCF {
 			str = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
 				+ "<string xmlns=\"http://tempuri.org/\">"+(-1-r.nextInt(17))+"</string>";
 		}
-//		long start = System.currentTimeMillis();
+		
 		String ret = SMSUtils.parseSendSMSReturn(str);
-//		System.out.println("parse cost: " + (System.currentTimeMillis()-start) + " ms");
-		// System.out.println("return: " + ret);
 		return ret;
 	}
 	

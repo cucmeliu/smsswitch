@@ -23,14 +23,14 @@ public class SMSSendServiceImpl implements SMSSendService {
 	static Logger logger = Logger.getLogger(SMSSendServiceImpl.class);
 
 	SMSSendDao dao = BasicFactory.getFactory().getInstance(SMSSendDao.class);
-	//static long fromId = 0;
-	//static long toId = 0;
+	// static long fromId = 0;
+	// static long toId = 0;
 	private Config config;
 
 	@Override
 	public List<SMSSendBean> getNewSMS(int count) {
 		try {
-			//dao.setTable(config.getTableSend());
+			// dao.setTable(config.getTableSend());
 			return dao.getNewSMS(count);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -42,7 +42,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 	@Override
 	public List<SMSSendBean> getNewSMS(int count, int mod, int remainder) {
 		try {
-			//dao.setTable(config.getTableSend());
+			// dao.setTable(config.getTableSend());
 			return dao.getNewSMS(count, mod, remainder);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -54,7 +54,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 	@Override
 	public int[] updateState2DB(List<SMSSendBean> list) {
 		try {
-			//dao.setTable(config.getTableSend());
+			// dao.setTable(config.getTableSend());
 			return dao.updateSendState(list);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -66,7 +66,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 	@Override
 	public int insert2DB(SMSSendBean record) {
 		try {
-			//dao.setTable(config.getTableSend());
+			// dao.setTable(config.getTableSend());
 			return dao.insert(record);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -79,7 +79,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 	public int insert2DB(List<SMSSendBean> list) {
 		int[] a;
 		try {
-			//dao.setTable(config.getTableSend());
+			// dao.setTable(config.getTableSend());
 			a = dao.insert(list);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -170,7 +170,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 		// System.out.println("send one packet: " + sb.toString());
 		logger.info("send one packet: " + sb.toString());
 
-		String sendrst = sendSms.sendPack(msg, SendSMSCF.SendIndividualMsg);
+		String sendrst = sendSms.sendPack(msg, config.getCmdSendIndiv());
 		// TODO 测试使用，发布时改为上面的语句
 		// long sendrst = sendSms.sendTest(msg);
 
@@ -208,7 +208,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 
 			String sendRst;
 			try {
-				sendRst = sendSms.send(msg, SendSMSCF.SendMsg);
+				sendRst = sendSms.send(msg, config.getCmdSend());
 			} catch (Exception e) {
 				e.printStackTrace();
 				logger.error(e);
@@ -266,7 +266,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 
 	private int[] deleteSent(List<SMSSendBean> list) {
 		try {
-			//dao.setTable(config.getTableSend());
+			// dao.setTable(config.getTableSend());
 			return dao.delSentRec(list);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -277,7 +277,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 
 	private int[] insertSent(List<SMSSendBean> list) {
 		try {
-			//dao.setTable(config.getTableSend());
+			// dao.setTable(config.getTableSend());
 			return dao.insSentRec(list);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -405,8 +405,11 @@ public class SMSSendServiceImpl implements SMSSendService {
 			sb.append(ss.getPhone()).append("|!|").append(ss.getContent())
 					.append("|^|");
 
-			//it.remove();
+			// it.remove();
 		}
+		System.out.println(" list.size()=" + list.size() + ", sb: "
+				+ sb.toString());
+
 		sb.delete(sb.length() - 3, sb.length());
 		return sb.toString();
 	}
@@ -435,10 +438,11 @@ public class SMSSendServiceImpl implements SMSSendService {
 				if (null == oneList)
 					break;
 
-				
-				String sendrst = sendSms.send(packYunXinSms(oneList), SendSMSCF.sendMes);
+				String sendrst = sendSms.send(packYunXinSms(oneList),
+						config.getCmdSend());
 				logger.info("sending yunxin sms, result: " + sendrst);
-				// TODO String sendrst = sendSms.sendTest(packYunXinSms(oneList));
+				// TODO String sendrst =
+				// sendSms.sendTest(packYunXinSms(oneList));
 
 				int state = SMSSendBean.STATE_SUBSUCC;
 
@@ -473,17 +477,18 @@ public class SMSSendServiceImpl implements SMSSendService {
 		}
 
 		// 剩下的按个性化打包 notFitList
-		if (null != notFitList) {
-			
+		if ((null != notFitList) && (notFitList.size() > 0)) {
+
 			SMSSendParams ssp = new SMSSendParams();
 
 			ssp.setChannel(config.getChannal());
 			ssp.setMsg(getOneYunXinPackStr(notFitList));
 
 			try {
-				String sendrst = sendSms.sendPack(ssp, SendSMSCF.IndividualSm);
+				String sendrst = sendSms
+						.sendPack(ssp, config.getCmdSendIndiv());
 				logger.info("sending yunxin individual, result: " + sendrst);
-				
+
 				int state = SMSSendBean.STATE_SUBSUCC;
 
 				try {
@@ -501,8 +506,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 					ssb.setState(state);
 					ssb.setSendtime(sendtime);
 				}
-				
-				
+
 			} catch (Exception e) {
 				e.printStackTrace();
 				logger.error(e);
@@ -639,7 +643,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 		SMSSendBean ss;
 		for (Iterator<SMSSendBean> it = list.iterator(); it.hasNext();) {
 			ss = it.next();
-			//System.out.println("deal: " + ss.toString());
+			// System.out.println("deal: " + ss.toString());
 			if (ss.getState() != 0) {
 				sentList.add(ss);
 				it.remove();
@@ -647,10 +651,14 @@ public class SMSSendServiceImpl implements SMSSendService {
 		}
 		//
 		long start = System.currentTimeMillis();
+
 		int[] a = insertSent(sentList);
+
 		int rst = 0;
-		for (int i = 0; i < a.length; i++)
-			rst += a[i];
+		if (null != a)  {
+			for (int i = 0; i < a.length; i++)
+				rst += a[i];
+		}
 		logger.info("  insert sent record : " + rst + " ，Cost time: "
 				+ (System.currentTimeMillis() - start) + " ms\n");
 

@@ -2,7 +2,7 @@
 <c3p0-config>
 	<default-config>
 		<property name="driverClass">com.mysql.jdbc.Driver</property>
-		<property name="jdbcUrl">jdbc:mysql:///SMSUtil</property>
+		<property name="jdbcUrl">jdbc:mysql:///SMSSwitch</property>
 		<property name="user">root</property>
 		<property name="password">root</property>
 	</default-config>

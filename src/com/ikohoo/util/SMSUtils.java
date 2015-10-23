@@ -124,7 +124,7 @@ public class SMSUtils {
 
 	public static String parseSendSMSReturn(String str)  {
 		String ret = parseReturnStrRep(str); //parseReturn(str);
-		System.out.println("parse result: " + ret);
+		//System.out.println("parse result: " + ret);
 		return ret;
 //		if (null == ret || "".equals(ret)) {
 //			return RETURN_ERROR_UNKNOWN;

@@ -11,3 +11,14 @@
 2015-10-21 23:45:44,191 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
 2015-10-21 23:53:08,200 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
 2015-10-21 23:54:49,436 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
+2015-10-23 19:59:38,741 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Data truncation: Data too long for column 'statcode' at row 1 Query:  INSERT INTO send_sf_done VALUES(?, ?, ?, ?, ?, ?, ?)  Parameters: [[17, 18651650023, test, 2015-10-23 19:08:08.0, -6, 2015-10-23 19:59:38.707, 405 - ���������ڷ��ʴ�ҳ�� HTTP ν�ʡ�
+
+
+
+
+
+����������
+
+ 
+  405 - ���������ڷ��ʴ�ҳ�� HTTP ν�ʡ�
+  ��Ҫ���ҵ�ҳ���޷���ʾ����Ϊ���Է���ʱʹ������Ч����(HTTP ν��)��]]

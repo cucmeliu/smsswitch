@@ -1,0 +1,4 @@
+说明：
+发送代码,引用SendSMSCF.java里面的类:
+SendSMS smsSender = new SendSMS();
+smsSender.send(brokerInfo.getMobile(), "您的验证码是：123【您的签名】");

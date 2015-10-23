@@ -33,7 +33,7 @@ public class ReportGetServiceImpl implements ReportGetService {
 
 		String str;
 		try {
-			str = new GetBase(config).get("GetReport2");
+			str = new GetBase(config).get(config.getCmdRept());
 		} catch (Exception e) {
 			e.printStackTrace();
 			logger.error(e);

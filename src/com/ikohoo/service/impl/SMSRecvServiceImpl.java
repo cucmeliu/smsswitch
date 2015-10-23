@@ -27,7 +27,7 @@ public class SMSRecvServiceImpl implements SMSRecvService {
 		String str;
 		try {
 			str = new GetBase(config)
-				.get("GetMo2");
+				.get(config.getCmdRecv());
 			// TODO 测试使用，发布时改为上面的语句
 		 	//.getTest("GetMo2");
 		} catch (Exception e) {
