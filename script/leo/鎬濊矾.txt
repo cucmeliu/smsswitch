@@ -1,0 +1,21 @@
+看了下你写的，功能都可以实现，维护起来麻烦。
+
+我给你改了下。
+
+deploy.sh  负责部署并且启动的。
+
+startSmsSwitch.sh 负责启动的，启动和检查都使用这一个脚本即可。
+
+
+使用方法：
+
+1、你要修改下deploy.sh中的desPath这个变量的值，这个是startSmsSwitch.sh的最后存放位置，与你的脚本中的lib目录在同一级。
+
+2、sh deploy.sh xx
+
+
+部署完，后续在启动，直接调用 startSmsSwitch.sh xx即可。
+
+
+没有环境调试，你要自己调一下
+
