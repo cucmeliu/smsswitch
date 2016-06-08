@@ -9,6 +9,7 @@ public interface SMSSendDao {
 	
 //	public void setConfig(Config config);
 	public void setTable(String table);
+	public void setTableSent(String table);
 	
 	/**
 	 * 从发送表中取出待发送的内容

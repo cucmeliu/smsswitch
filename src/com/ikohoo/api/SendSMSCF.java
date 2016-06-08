@@ -1,4 +1,4 @@
-﻿package com.ikohoo.api;
+package com.ikohoo.api;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -23,48 +23,48 @@ public class SendSMSCF {
 	static Logger logger = Logger.getLogger(SendSMSCF.class);
 	private String url; // "http://h.1069106.com:1210/Services/MsgSend.asmx/SendMsg";
 	private Config config;
-	
+
 	/**
 	 * 触发发送短信命令
 	 */
-	//public static final String SendMsg = "SendMsg";
+	// public static final String SendMsg = "SendMsg";
 	/**
 	 * 触发发送个性化短信命令
 	 */
-	//public static final String SendIndividualMsg = "SendIndividualMsg";
-	
-	/** 云信url到http://yes.itissm.com/api/
-	 *  云信发送短信命令
-	 */
-	//public static final String sendMes = "MsgSend.asmx/sendMes";
+	// public static final String SendIndividualMsg = "SendIndividualMsg";
+
 	/**
-	 *  云信发送个性化短信命令
+	 * 云信url到http://yes.itissm.com/api/ 云信发送短信命令
 	 */
-	//public static final String IndividualSm = "IndividualSm.aspx";
-	
+	// public static final String sendMes = "MsgSend.asmx/sendMes";
+	/**
+	 * 云信发送个性化短信命令
+	 */
+	// public static final String IndividualSm = "IndividualSm.aspx";
 
 	public SendSMSCF(Config config) {
 		super();
 		this.config = config;
-		//url = config.getUrl() + "SendMsg";
+		// url = config.getUrl() + "SendMsg";
 	}
 
 	/**
 	 * 发送短信
+	 * 
 	 * @param msg
 	 * @return 批次号
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public String send(SMSSendParams msg, String cmd) throws Exception {
 		if (null == msg)
 			return "";
-		url = config.getUrl() +  cmd;//"SendMsg";
+		url = config.getUrl() + cmd;// "SendMsg";
 		System.out.println("url: " + url);
 		System.out.println("msg: " + msg);
-		
+
 		String str = "";
 		try {
-			//System.out.println("Sending: " + msg.toString());
+			// System.out.println("Sending: " + msg.toString());
 
 			// 创建HttpClient实例
 			HttpClient httpclient = new DefaultHttpClient();
@@ -73,8 +73,10 @@ public class SendSMSCF {
 			HttpPost httpPost = new HttpPost(url);
 			// 添加所需要的post内容
 			List<NameValuePair> nvps = new ArrayList<NameValuePair>();
-			nvps.add(new BasicNameValuePair("userCode", config.getUserCode())); 
-			nvps.add(new BasicNameValuePair("userPass", config.getUserPass())); 
+
+			nvps.add(new BasicNameValuePair("userCode", config.getUserCode()));
+			nvps.add(new BasicNameValuePair("userPass", config.getUserPass()));
+
 			nvps.add(new BasicNameValuePair("DesNo", msg.getDestNo()));
 			nvps.add(new BasicNameValuePair("Msg", msg.getMsg()));
 			nvps.add(new BasicNameValuePair("Channel", msg.getChannel()));
@@ -86,34 +88,35 @@ public class SendSMSCF {
 				InputStream instreams = entity.getContent();
 				str = SMSUtils.convertStreamToString(instreams);
 			}
-			
+
 			logger.info("send return: " + str);
 
 			return SMSUtils.parseSendSMSReturn(str);
 
 		} catch (Exception e) {
-			//e.printStackTrace();
-			//logger.error(e);
+			// e.printStackTrace();
+			// logger.error(e);
 			throw e;
-			//return SMSUtils.RETURN_ERROR_UNKNOWN;
+			// return SMSUtils.RETURN_ERROR_UNKNOWN;
 		}
 	}
 
 	/**
 	 * 打包发送
+	 * 
 	 * @param msg
 	 * @return 批次号
-	 * @throws Exception 
+	 * @throws Exception
 	 */
 	public String sendPack(SMSSendParams msg, String cmd) throws Exception {
-		
-		url = config.getUrl() +  cmd; //"SendIndividualMsg";
+
+		url = config.getUrl() + cmd; // "SendIndividualMsg";
 		System.out.println("url: " + url);
 		System.out.println("msg: " + msg);
-		
+
 		String str = "";
 		try {
-			//System.out.println("Sending pack: " + msg.toString());
+			// System.out.println("Sending pack: " + msg.toString());
 
 			// 创建HttpClient实例
 			HttpClient httpclient = new DefaultHttpClient();
@@ -122,8 +125,17 @@ public class SendSMSCF {
 			HttpPost httpPost = new HttpPost(url);
 			// 添加所需要的post内容
 			List<NameValuePair> nvps = new ArrayList<NameValuePair>();
-			nvps.add(new BasicNameValuePair("userCode", config.getUserCode()));
-			nvps.add(new BasicNameValuePair("userPass", config.getUserPass())); 
+			// TODO 不要单独处理，协议要修改成userCode/userPass
+			if (cmd.equals("IndividualSm.aspx")) // (config.getCmdSendIndiv()))
+			{
+				nvps.add(new BasicNameValuePair("account", config.getUserCode()));
+				nvps.add(new BasicNameValuePair("pwd", config.getUserPass()));
+			} else {
+				nvps.add(new BasicNameValuePair("userCode", config
+						.getUserCode()));
+				nvps.add(new BasicNameValuePair("userPass", config
+						.getUserPass()));
+			}
 			nvps.add(new BasicNameValuePair("Msg", msg.getMsg()));
 			nvps.add(new BasicNameValuePair("Channel", msg.getChannel()));
 
@@ -139,10 +151,10 @@ public class SendSMSCF {
 			return SMSUtils.parseSendSMSReturn(str);
 
 		} catch (Exception e) {
-			//e.printStackTrace();
-			//logger.error(e);
+			// e.printStackTrace();
+			// logger.error(e);
 			throw e;
-			//return SMSUtils.RETURN_ERROR_UNKNOWN;
+			// return SMSUtils.RETURN_ERROR_UNKNOWN;
 		}
 	}
 
@@ -158,16 +170,16 @@ public class SendSMSCF {
 		String str = null;
 		Random r = new Random();
 		if (r.nextBoolean()) {
-			str = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"+
-					 "<string xmlns=\"http://tempuri.org/\">2314437910941733540</string>";
+			str = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
+					+ "<string xmlns=\"http://tempuri.org/\">2314437910941733540</string>";
 		} else {
 			str = "<?xml version=\"1.0\" encoding=\"utf-8\"?>"
-				+ "<string xmlns=\"http://tempuri.org/\">"+(-1-r.nextInt(17))+"</string>";
+					+ "<string xmlns=\"http://tempuri.org/\">"
+					+ (-1 - r.nextInt(17)) + "</string>";
 		}
-		
+
 		String ret = SMSUtils.parseSendSMSReturn(str);
 		return ret;
 	}
-	
-	
+
 }

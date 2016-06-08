@@ -23,19 +23,19 @@ public class JDBCUtils {
 	}
 	
 	/**
-	 * ��ȡ����
+	 * 
 	 * @throws ClassNotFoundException 
 	 * @throws SQLException 
 	 */
 	public static Connection getConn() throws ClassNotFoundException, SQLException{
-		// 1.ע�����ݿ�����
+		// 
 		Class.forName(prop.getProperty("driver"));
-		// 2.��ȡ����
+		// 
 		return DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("user"), prop.getProperty("password"));
 		
 	}
 	/**
-	 * �ر�����
+	 *
 	 */
 	public static void close(ResultSet rs, Statement stat,Connection conn){
 		if(rs!=null){

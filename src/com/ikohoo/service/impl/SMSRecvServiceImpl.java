@@ -2,7 +2,9 @@ package com.ikohoo.service.impl;
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -71,7 +73,12 @@ public class SMSRecvServiceImpl implements SMSRecvService {
 		SMSRecv sr = new SMSRecv();
 		sr.setPhone(sp[0].trim());
 		sr.setContent(sp[1].trim());
-		sr.setReplytime(Timestamp.valueOf(sp[2].trim()));
+		//SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		//随便怎么转都可以的
+		//Date date = format.parse(time);
+		//String dateString = formatter.format(date); 
+		//Timestamp.valueOf(rg.getSendtime().replaceAll("/","-"))
+		sr.setReplytime(Timestamp.valueOf(sp[2].trim().replaceAll("/","-")));
 		
 		return sr;
 	}

@@ -33,7 +33,7 @@ public class GetRecvBiz extends TimerTask {
 		List<SMSRecvBean> list = service.getRecvListBean();
 		
 		if (null == list || 0 == list.size()) {
-			logAndPrint("No new sms received, wait for next loop...");
+			logAndPrint("No new received, wait for next loop...");
 		} else {
 			logAndPrint("Get recv sms: " + list.size() + ", Cost time: "
 					+ (System.currentTimeMillis() - start) + " ms\n");
@@ -46,7 +46,7 @@ public class GetRecvBiz extends TimerTask {
 			// 插入数据库
 			start = System.currentTimeMillis();
 			service.insert2DB(list);
-			logAndPrint("Insert into db Cost time: "
+			logAndPrint("Insert recv into db Cost time: "
 					+ (System.currentTimeMillis() - start) + " ms\n");
 		}
 		//logAndPrint("---------------------------------------\n");

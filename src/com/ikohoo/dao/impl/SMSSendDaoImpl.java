@@ -13,6 +13,7 @@ import com.ikohoo.util.DaoUtils;
 public class SMSSendDaoImpl implements SMSSendDao {
 
 	private String table = "send_sf";
+	private String tableSent = "send_sf_done";
 
 	// private Config config;
 
@@ -128,6 +129,8 @@ public class SMSSendDaoImpl implements SMSSendDao {
 	@Override
 	public int[] delSentRec(List<SMSSendBean> list) throws SQLException {
 		String sql = " DELETE FROM " + table + "  WHERE id=? ";
+		
+		//System.out.println("delete sql: " + sql);
 		try {
 			QueryRunner runner = new QueryRunner(DaoUtils.getSource());
 			Object[][] params = new Object[list.size()][1];
@@ -150,20 +153,21 @@ public class SMSSendDaoImpl implements SMSSendDao {
 	@Override
 	public int[] insSentRec(List<SMSSendBean> list) throws SQLException {
 		// id, phone, content, intime, state, sendtime, statcode
-		String sql = " INSERT INTO send_sf_done VALUES(?, ?, ?, ?, ?, ?, ?) ";
+		String sql = " INSERT INTO "+ tableSent +" VALUES(null, ?, ?, ?, ?, ?, ?) ";
+		//System.out.println("insert sql: " + sql);
 		try {
 			QueryRunner runner = new QueryRunner(DaoUtils.getSource());
-			Object[][] params = new Object[list.size()][7];
+			Object[][] params = new Object[list.size()][6];
 			int i = 0;
 
 			for (SMSSendBean ss : list) {
-				params[i][0] = ss.getId();
-				params[i][1] = ss.getPhone();
-				params[i][2] = ss.getContent();
-				params[i][3] = ss.getIntime();
-				params[i][4] = ss.getState();
-				params[i][5] = ss.getSendtime();
-				params[i][6] = ss.getStatcode();
+				//params[i][0] = ss.getId();
+				params[i][0] = ss.getPhone();
+				params[i][1] = ss.getContent();
+				params[i][2] = ss.getIntime();
+				params[i][3] = ss.getState();
+				params[i][4] = ss.getSendtime();
+				params[i][5] = ss.getStatcode();
 				i++;
 			}
 			return runner.batch(sql, params);
@@ -179,6 +183,15 @@ public class SMSSendDaoImpl implements SMSSendDao {
 	@Override
 	public void setTable(String table) {
 		this.table = table;
+	}
+
+//	public String getTableSent() {
+//		return tableSent;
+//	}
+
+	@Override
+	public void setTableSent(String table) {
+		this.tableSent = table;
 	}
 
 	// @Override

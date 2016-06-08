@@ -1,6 +1,7 @@
 package com.ikohoo.util;
 
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Properties;
 
 import org.apache.log4j.Logger;
@@ -36,8 +37,9 @@ public class ConfigReader {
 			// 读jar包内的配置
 			InputStream in = ConfigReader.class
 					.getResourceAsStream(propfilename);
-
-			prop.load(in);
+			prop.load(new InputStreamReader(in, "UTF-8"));
+			
+			config.setBizType(prop.getProperty("biz-type", "noset"));
 			config.setSendInterval(Integer.parseInt(prop.getProperty(
 					"send-interval", 2000 + "")));
 			config.setRecvInterval(Integer.parseInt(prop.getProperty(
@@ -58,7 +60,13 @@ public class ConfigReader {
 					50 + "")));
 			config.setSendMax(Integer.parseInt(prop.getProperty("send-max",
 					500 + "")));
-
+			
+			config.setDbTestInterval(Integer.parseInt(prop.getProperty("dbTest-interval", 3000 + "")));
+			config.setDbTestCount(Integer.parseInt(prop.getProperty("dbTest-count", 500 + "")));
+			config.setDbTestPhone(Long.parseLong(prop.getProperty("dbTest-phone", "130000000")));
+			config.setDbTestContent(prop.getProperty("dbTest-content", "测试短信，这是测试短信"));
+			config.setDbTestSign(prop.getProperty("dbTest-sign", "【测试短信】"));
+			
 			config.setUrl(prop.getProperty("url",
 					"http://h.1069106.com:1210/Services/MsgSend.asmx/"));
 			config.setUserCode(prop.getProperty("usercode", "JSCS"));
@@ -74,6 +82,9 @@ public class ConfigReader {
 			config.setTableSend(prop.getProperty("table-send", "send_sf"));
 			config.setTableRecv(prop.getProperty("table-recv", "receivesms_sf"));
 			config.setTableRept(prop.getProperty("table-rept", "stat_sf"));
+			config.setTableSent(prop.getProperty("table-sent", "send_sf_done"));
+			
+			System.out.println(config.toString());
 
 		} catch (Exception e) {
 			e.printStackTrace();

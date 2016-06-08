@@ -1,24 +1,128 @@
-2015-10-19 20:56:56,291 ERROR [com.ikohoo.util.ConfigReader] - java.io.FileNotFoundException: /project.properties (No such file or directory)
-2015-10-19 20:58:02,215 ERROR [com.ikohoo.util.ConfigReader] - java.io.FileNotFoundException: /Users/apple/GitHub/SMSSwitch\project.properties (No such file or directory)
-2015-10-19 20:58:24,408 ERROR [com.ikohoo.util.ConfigReader] - java.io.FileNotFoundException: /Users/apple/GitHub/SMSSwitch/project.properties (No such file or directory)
-2015-10-19 21:11:31,759 ERROR [com.ikohoo.util.ConfigReader] - java.io.FileNotFoundException: /Users/apple/GitHub/SMSSwitch/project.properties (No such file or directory)
-2015-10-20 22:44:26,493 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
-2015-10-20 22:44:29,526 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
-2015-10-20 22:47:12,258 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
-2015-10-20 22:47:13,697 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
-2015-10-20 22:48:29,585 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
-2015-10-20 22:48:31,415 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
-2015-10-21 23:45:44,191 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
-2015-10-21 23:53:08,200 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
-2015-10-21 23:54:49,436 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NullPointerException
-2015-10-23 19:59:38,741 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Data truncation: Data too long for column 'statcode' at row 1 Query:  INSERT INTO send_sf_done VALUES(?, ?, ?, ?, ?, ?, ?)  Parameters: [[17, 18651650023, test, 2015-10-23 19:08:08.0, -6, 2015-10-23 19:59:38.707, 405 - ���������ڷ��ʴ�ҳ�� HTTP ν�ʡ�
-
-
-
-
-
-����������
-
- 
-  405 - ���������ڷ��ʴ�ҳ�� HTTP ν�ʡ�
-  ��Ҫ���ҵ�ҳ���޷���ʾ����Ϊ���Է���ʱʹ������Ч����(HTTP ν��)��]]
+2016-01-21 11:08:28,487 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Connections could not be acquired from the underlying database!
+2016-05-31 10:36:00,751 ERROR [com.ikohoo.service.impl.SMSRecvServiceImpl] - java.net.SocketTimeoutException: Read timed out
+2016-05-31 10:36:00,758 ERROR [com.ikohoo.service.impl.ReportGetServiceImpl] - java.net.SocketTimeoutException: Read timed out
+2016-05-31 10:36:11,877 ERROR [com.ikohoo.service.impl.SMSRecvServiceImpl] - java.net.NoRouteToHostException: No route to host: connect
+2016-05-31 10:36:11,879 ERROR [com.ikohoo.service.impl.ReportGetServiceImpl] - java.net.NoRouteToHostException: No route to host: connect
+2016-05-31 10:36:41,889 ERROR [com.ikohoo.service.impl.SMSRecvServiceImpl] - java.net.NoRouteToHostException: No route to host: connect
+2016-05-31 10:36:41,891 ERROR [com.ikohoo.service.impl.ReportGetServiceImpl] - java.net.NoRouteToHostException: No route to host: connect
+2016-05-31 10:37:11,861 ERROR [com.ikohoo.service.impl.SMSRecvServiceImpl] - java.net.NoRouteToHostException: No route to host: connect
+2016-05-31 10:37:11,872 ERROR [com.ikohoo.service.impl.ReportGetServiceImpl] - java.net.NoRouteToHostException: No route to host: connect
+2016-06-01 11:30:26,192 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:30:26.146, 0]]
+2016-06-01 11:30:29,148 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:30:29.146, 0]]
+2016-06-01 11:30:32,151 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:30:32.147, 0]]
+2016-06-01 11:30:35,157 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:30:35.148, 0]]
+2016-06-01 11:30:38,154 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:30:38.149, 0]]
+2016-06-01 11:30:41,151 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:30:41.149, 0]]
+2016-06-01 11:30:44,158 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:30:44.149, 0]]
+2016-06-01 11:30:47,156 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:30:47.15, 0]]
+2016-06-01 11:30:50,155 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:30:50.15, 0]]
+2016-06-01 11:30:53,171 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:30:53.15, 0]]
+2016-06-01 11:30:56,161 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:30:56.15, 0]]
+2016-06-01 11:30:59,158 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:30:59.151, 0]]
+2016-06-01 11:31:02,158 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:02.154, 0]]
+2016-06-01 11:31:05,164 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:05.154, 0]]
+2016-06-01 11:31:08,177 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:08.155, 0]]
+2016-06-01 11:31:11,177 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:11.156, 0]]
+2016-06-01 11:31:14,162 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:14.156, 0]]
+2016-06-01 11:31:17,158 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:17.156, 0]]
+2016-06-01 11:31:20,164 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:20.157, 0]]
+2016-06-01 11:31:23,160 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:23.157, 0]]
+2016-06-01 11:31:26,158 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:26.157, 0]]
+2016-06-01 11:31:29,162 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:29.157, 0]]
+2016-06-01 11:31:32,164 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:32.158, 0]]
+2016-06-01 11:31:35,166 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:35.158, 0]]
+2016-06-01 11:31:38,163 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:38.158, 0]]
+2016-06-01 11:31:41,172 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:41.161, 0]]
+2016-06-01 11:31:44,173 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:44.159, 0]]
+2016-06-01 11:31:47,168 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:47.16, 0]]
+2016-06-01 11:31:50,169 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:50.16, 0]]
+2016-06-01 11:31:53,182 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:53.16, 0]]
+2016-06-01 11:31:56,163 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:56.161, 0]]
+2016-06-01 11:31:59,170 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:31:59.161, 0]]
+2016-06-01 11:32:02,169 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:02.162, 0]]
+2016-06-01 11:32:05,182 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:05.161, 0]]
+2016-06-01 11:32:08,169 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:08.162, 0]]
+2016-06-01 11:32:11,167 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:11.162, 0]]
+2016-06-01 11:32:14,170 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:14.163, 0]]
+2016-06-01 11:32:17,169 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:17.163, 0]]
+2016-06-01 11:32:20,168 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:20.163, 0]]
+2016-06-01 11:32:23,175 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:23.163, 0]]
+2016-06-01 11:32:26,169 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:26.163, 0]]
+2016-06-01 11:32:29,168 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:29.163, 0]]
+2016-06-01 11:32:32,169 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:32.163, 0]]
+2016-06-01 11:32:35,172 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:35.164, 0]]
+2016-06-01 11:32:38,170 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:38.164, 0]]
+2016-06-01 11:32:41,172 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:41.165, 0]]
+2016-06-01 11:32:44,172 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:44.166, 0]]
+2016-06-01 11:32:47,172 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:47.166, 0]]
+2016-06-01 11:32:50,174 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:50.167, 0]]
+2016-06-01 11:32:53,210 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:53.17, 0]]
+2016-06-01 11:32:56,185 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:56.171, 0]]
+2016-06-01 11:32:59,186 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:32:59.172, 0]]
+2016-06-01 11:33:02,178 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:33:02.173, 0]]
+2016-06-01 11:38:36,565 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:38:35.945, 0]]
+2016-06-01 11:38:38,950 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:38:38.943, 0]]
+2016-06-01 11:38:41,949 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 11:38:41.943, 0]]
+2016-06-01 12:02:19,217 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 12:02:18.071, 0]]
+2016-06-01 13:04:43,214 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 13:04:42.039, 0]]
+2016-06-01 13:04:54,556 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 13:04:54.546, 0]]
+2016-06-01 13:18:19,936 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.sql.SQLException: Column 'phone' cannot be null Query:  INSERT INTO send_sf  VALUES(null, ?, ?, ?, ?, null, null)  Parameters: [[null, null, 2016-06-01 13:18:19.303, 0]]
+2016-06-08 16:45:23,756 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 16:45:23,827 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 16:45:23,878 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 16:45:26,942 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:15:11,748 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:15:11,808 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:15:12,812 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:15:13,822 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:15:14,808 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:15:15,814 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:15:16,817 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:15:17,807 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:15:18,806 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:15:19,810 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:15:20,823 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:39:04,628 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:43:20,857 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:43:21,604 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:43:22,602 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:43:23,596 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:43:24,655 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:43:25,591 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:43:26,590 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:43:27,595 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:43:28,607 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:43:29,659 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:43:30,611 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:43:31,970 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:43:32,771 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:43:36,761 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:43:36,972 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:36,891 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:36,925 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:37,943 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:38,931 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:39,973 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:40,952 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:41,928 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:42,935 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:43,942 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:44,938 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:45,933 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:46,942 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:47,946 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:48,935 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:50,015 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:50,938 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:51,934 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:52,937 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:53,946 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:54,935 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:55,948 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:56,940 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:57,935 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:58,936 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:47:59,945 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:49:53,873 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:50:50,748 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""
+2016-06-08 17:52:11,590 ERROR [com.ikohoo.service.impl.SMSSendServiceImpl] - java.lang.NumberFormatException: For input string: ""

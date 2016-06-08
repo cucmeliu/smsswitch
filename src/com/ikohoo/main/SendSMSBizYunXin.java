@@ -62,6 +62,27 @@ public class SendSMSBizYunXin extends TimerTask{
 			
 			logAndPrint("# [ "+ remainder +" ] Get new sms: [" + list.size() + "]" + ", Cost time: "
 					+ (System.currentTimeMillis() - start) + " ms\n");
+			
+			int pos=0;
+			String signName="";
+			
+			for (SMSSendBean ssb: list) {
+				//System.out.println("rep--cont: " + ssb.getContent().replace(">", "-") );
+				ssb.setContent(ssb.getContent().replace(">", "》")
+						.replace("\\u005c", "、"));
+				
+				if (ssb.getContent().startsWith("【")) {
+					pos=ssb.getContent().indexOf("】");
+					signName = ssb.getContent().substring(0, pos+1);
+
+					ssb.setContent((ssb.getContent().substring(pos+1, 
+							ssb.getContent().length())+signName)
+							
+							);
+				}
+				//System.out.println("sign name invert: " + ssb.toString());
+			}
+
 
 			start = System.currentTimeMillis();
 			
@@ -73,7 +94,8 @@ public class SendSMSBizYunXin extends TimerTask{
 
 			start = System.currentTimeMillis();
 			
-			int num = service.dealSentSMSYunXin(list);
+			//int num = service.dealSentSMSYunXin(list);
+			int num = service.dealSentSMS(list);
 
 			if (list.size() != 0) {
 				logAndPrint("# [ "+ remainder +" ]    deal left list: ");
@@ -82,8 +104,8 @@ public class SendSMSBizYunXin extends TimerTask{
 				}
 			}
 
-//			logAndPrint("# [ "+ remainder +" ]    Update send state to DB: " + num + ", Cost time: "
-//					+ (System.currentTimeMillis() - start) + " ms\n");
+			logAndPrint("# [ "+ remainder +" ]    Update send state to DB: " + num + ", Cost time: "
+					+ (System.currentTimeMillis() - start) + " ms\n");
 		}
 		logAndPrint("---------------------------------------\n");
 	}

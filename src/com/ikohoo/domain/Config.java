@@ -2,6 +2,7 @@ package com.ikohoo.domain;
 
 public class Config {
 
+	private String bizType;
 	private int sendInterval;
 	private int recvInterval;
 	private int getReportInterval;
@@ -13,10 +14,17 @@ public class Config {
 	private int packMax;
 	private int packMin;
 	private int sendMax;
+	
+	private int dbTestInterval;
+	private int dbTestCount;
+	private long dbTestPhone;
+	private String dbTestContent;
+	private String dbTestSign;
 
 	private String tableSend;
 	private String tableRecv;
 	private String tableRept;
+	private String tableSent;
 
 	private String url;
 	private String userCode;
@@ -31,6 +39,7 @@ public class Config {
 
 	public Config() {
 		super();
+		bizType = "yunxin";
 		sendInterval = 2000;
 		recvInterval = 2000;
 		getReportInterval = 2000;
@@ -42,6 +51,12 @@ public class Config {
 		packMax = 50;
 		packMin = 10;
 		sendMax = 500;
+		
+		dbTestInterval = 3000;
+		dbTestCount = 500;
+		dbTestPhone = 13000000000L;
+		dbTestContent = "content msg";
+		dbTestSign = "【sign】";
 
 		url = "http://h.1069106.com:1210/Services/MsgSend.asmx/";
 		userCode = "JSCS";
@@ -57,6 +72,23 @@ public class Config {
 		cmdRept = "GetReport2";
 	}
 
+	
+	public int getDbTestInterval() {
+		return dbTestInterval;
+	}
+
+	public void setDbTestInterval(int dbTestInterval) {
+		this.dbTestInterval = dbTestInterval;
+	}
+
+	public int getDbTestCount() {
+		return dbTestCount;
+	}
+
+	public void setDbTestCount(int dbTestCount) {
+		this.dbTestCount = dbTestCount;
+	}
+	
 	public String getCmdSend() {
 		return cmdSend;
 	}
@@ -169,19 +201,21 @@ public class Config {
 		this.sendCount = sendCount;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Config [sendInterval=" + sendInterval + ", recvInterval="
-				+ recvInterval + ", getReportInterval=" + getReportInterval
-				+ ", sendCount=" + sendCount + ", sendPause=" + sendPause
-				+ ", sendThread=" + sendThread + ", packMax=" + packMax
-				+ ", packMin=" + packMin + ", sendMax=" + sendMax
-				+ ", tableSend=" + tableSend + ", tableRecv=" + tableRecv
-				+ ", tableRept=" + tableRept + ", url=" + url + ", userCode="
-				+ userCode + ", userPass=" + userPass + ", channal=" + channal
-				+ ", cmdSend=" + cmdSend + ", cmdSendIndiv=" + cmdSendIndiv
-				+ ", cmdRecv=" + cmdRecv + ", cmdRept=" + cmdRept + "]";
+		return "Config [bizType=" + bizType + ", sendInterval=" + sendInterval + ", recvInterval=" + recvInterval
+				+ ", getReportInterval=" + getReportInterval + ", sendCount=" + sendCount + ", sendPause=" + sendPause
+				+ ", sendThread=" + sendThread + ", packMax=" + packMax + ", packMin=" + packMin + ", sendMax="
+				+ sendMax + ", dbTestInterval=" + dbTestInterval + ", dbTestCount=" + dbTestCount + ", dbTestPhone="
+				+ dbTestPhone + ", dbTestContent=" + dbTestContent + ", dbTestSign=" + dbTestSign + ", tableSend="
+				+ tableSend + ", tableRecv=" + tableRecv + ", tableRept=" + tableRept + ", tableSent=" + tableSent
+				+ ", url=" + url + ", userCode=" + userCode + ", userPass=" + userPass + ", channal=" + channal
+				+ ", cmdSend=" + cmdSend + ", cmdSendIndiv=" + cmdSendIndiv + ", cmdRecv=" + cmdRecv + ", cmdRept="
+				+ cmdRept + "]";
 	}
+
 
 	public int getSendPause() {
 		return sendPause;
@@ -229,6 +263,52 @@ public class Config {
 
 	public void setSendMax(int sendMax) {
 		this.sendMax = sendMax;
+	}
+
+	public String getTableSent() {
+		return tableSent;
+	}
+
+	public void setTableSent(String tableSent) {
+		this.tableSent = tableSent;
+	}
+
+	public String getBizType() {
+		return bizType;
+	}
+
+	public void setBizType(String bizType) {
+		this.bizType = bizType;
+	}
+
+
+	public String getDbTestSign() {
+		return dbTestSign;
+	}
+
+
+	public void setDbTestSign(String dbTestSign) {
+		this.dbTestSign = dbTestSign;
+	}
+
+
+	public String getDbTestContent() {
+		return dbTestContent;
+	}
+
+
+	public void setDbTestContent(String dbTestContent) {
+		this.dbTestContent = dbTestContent;
+	}
+
+
+	public long getDbTestPhone() {
+		return dbTestPhone;
+	}
+
+
+	public void setDbTestPhone(long dbTestPhone) {
+		this.dbTestPhone = dbTestPhone;
 	}
 
 }

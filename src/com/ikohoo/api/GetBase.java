@@ -92,7 +92,7 @@ public class GetBase {
 	 */
 	public String getTest(String method) {
 		if ("GetMo".equals(method)) {
-			return "18651650023|,|A回复内容|,|2015-10-3 16:25:10|;|15618658829|,|B回复内容|,|2015-10-3 16:25:15|;|";
+			return "18651650023|,|A回复内容|,|2015/10/3 16:25:10|;|15618658829|,|B回复内容|,|2015/10/3 16:25:15|;|";
 		} 
 		else if ("GetMo2".equals(method)) {
 			Random r = new Random();

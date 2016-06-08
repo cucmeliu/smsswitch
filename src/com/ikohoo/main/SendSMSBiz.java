@@ -64,7 +64,8 @@ public class SendSMSBiz extends TimerTask {
 					+ (System.currentTimeMillis() - start) + " ms\n");
 
 			start = System.currentTimeMillis();
-			int succCount = service.packSend(list);
+			//int succCount = service.packSend(list);
+			int succCount = service.sendSMSList(list);
 
 			logAndPrint("# [ "+ remainder +" ]    Send succ: " + succCount + ", fail: "
 					+ (list.size() - succCount) + ", Cost time: "

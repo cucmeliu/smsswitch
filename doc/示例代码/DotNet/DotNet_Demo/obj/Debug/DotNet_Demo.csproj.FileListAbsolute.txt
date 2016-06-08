@@ -1,5 +1,0 @@
-E:\DotNetProjects\test\DotNet_Demo\DotNet_Demo\bin\DotNet_Demo.dll
-E:\DotNetProjects\test\DotNet_Demo\DotNet_Demo\bin\DotNet_Demo.pdb
-E:\DotNetProjects\test\DotNet_Demo\DotNet_Demo\obj\Debug\ResolveAssemblyReference.cache
-E:\DotNetProjects\test\DotNet_Demo\DotNet_Demo\obj\Debug\DotNet_Demo.dll
-E:\DotNetProjects\test\DotNet_Demo\DotNet_Demo\obj\Debug\DotNet_Demo.pdb

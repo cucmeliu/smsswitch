@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
+encoding//src/com/ikohoo/domain/Page.java=UTF-8
 encoding//src/com/ikohoo/util/TransactionManager.java=UTF-8
 encoding//src/log4j.properties=UTF-8
 encoding//src/project.properties=UTF-8
+encoding/<project>=UTF-8

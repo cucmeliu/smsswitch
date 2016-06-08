@@ -34,7 +34,7 @@ public class GetReportBiz extends TimerTask {
 		List<ReportGetBean> list = service.getReport2Status();
 
 		if (null == list || 0 == list.size()) {
-			logAndPrint("No new report get, wait for next loop...");
+			logAndPrint("No new report, wait for next loop...");
 		} else {
 			logAndPrint("Get Report: " + list.size() + ", Cost time: "
 					+ (System.currentTimeMillis() - start) + " ms\n");
@@ -48,7 +48,7 @@ public class GetReportBiz extends TimerTask {
 			start = System.currentTimeMillis();
 			service.insert2DB(list);
 			
-			logAndPrint("Insert into db, Cost time: "
+			logAndPrint("Insert rept into db, Cost time: "
 					+ (System.currentTimeMillis() - start) + " ms\n");
 		}
 		logAndPrint("---------------------------------------\n");

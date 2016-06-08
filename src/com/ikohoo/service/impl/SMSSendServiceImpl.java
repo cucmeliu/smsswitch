@@ -111,8 +111,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 		List<SMSSendBean> rst = new ArrayList<SMSSendBean>();
 		SMSSendBean ss = null;
 		int count = 0;
-		for (Iterator<SMSSendBean> it = list.iterator(); it.hasNext()
-				&& count++ < config.getPackMax();) {
+		for (Iterator<SMSSendBean> it = list.iterator(); it.hasNext() && count++ < config.getPackMax();) {
 			ss = it.next();
 			if (!isDuplicatPhone(rst, ss.getPhone())) {
 				rst.add(ss);
@@ -128,8 +127,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 		int count = 0;
 		try {
 			while (list.size() > 0) {
-				List<SMSSendBean> oneList = new ArrayList<SMSSendBean>(
-						getOnePack(list));
+				List<SMSSendBean> oneList = new ArrayList<SMSSendBean>(getOnePack(list));
 
 				// System.out.println("One pack ..size: " + oneList.size());
 				logger.info("One pack ..size: " + oneList.size());
@@ -158,8 +156,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 		SendSMSCF sendSms = new SendSMSCF(config);
 		StringBuilder sb = new StringBuilder("");
 		for (SMSSendBean ssb : list) {
-			sb.append(ssb.getPhone()).append("|~|").append(ssb.getContent())
-					.append("|-|");
+			sb.append(ssb.getPhone()).append("|~|").append(ssb.getContent()).append("|-|");
 		}
 
 		sb.delete(sb.length() - 3, sb.length());
@@ -170,24 +167,39 @@ public class SMSSendServiceImpl implements SMSSendService {
 		// System.out.println("send one packet: " + sb.toString());
 		logger.info("send one packet: " + sb.toString());
 
-		String sendrst = sendSms.sendPack(msg, config.getCmdSendIndiv());
-		// TODO 测试使用，发布时改为上面的语句
-		// long sendrst = sendSms.sendTest(msg);
+		try {
 
-		int state;
-		if (Integer.parseInt(sendrst) < 0) {
-			state = Integer.parseInt(sendrst);
-		} else {
-			state = SMSSendBean.STATE_SUBSUCC;
-		}
+			String sendrst = sendSms.sendPack(msg, config.getCmdSendIndiv());
+			// TODO 测试使用，发布时改为上面的语句
+			// long sendrst = sendSms.sendTest(msg);
 
-		Timestamp sendtime = new Timestamp(System.currentTimeMillis());
+			logger.info(" result: " + sendrst);
 
-		for (SMSSendBean ssb : list) {
-			ssb.setStatcode(sendrst);
-			ssb.setState(state);
+			int state = SMSSendBean.STATE_SUBSUCC;
 
-			ssb.setSendtime(sendtime);
+			try {
+				if (sendrst.length() < 4) {
+					state = Integer.parseInt(sendrst);
+				}
+			} catch (Exception e) {
+				// －6:keyWords
+				state = -6;
+				e.printStackTrace();
+				logger.error(e);
+			}
+
+			Timestamp sendtime = new Timestamp(System.currentTimeMillis());
+
+			for (SMSSendBean ssb : list) {
+				ssb.setStatcode(sendrst);
+				ssb.setState(state);
+
+				ssb.setSendtime(sendtime);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error(e);
 		}
 		return list.size();
 	}
@@ -206,35 +218,54 @@ public class SMSSendServiceImpl implements SMSSendService {
 			msg.setMsg(ss.getContent());
 			msg.setChannel(config.getChannal()); // (SMSSendParams.channelSMS);
 
-			String sendRst;
+			String sendrst;
 			try {
-				sendRst = sendSms.send(msg, config.getCmdSend());
+				sendrst = sendSms.send(msg, config.getCmdSend());
+				// TODO 测试使用，发布时改为上面的语句
+				// long sendRst = sendSms.sendTest(msg);
+				// if (batchNumber>0)
+				// { 不论返回批次号还是失败码，都更新，
+				ss.setSendtime(new Timestamp(System.currentTimeMillis()));
+
+				int state = SMSSendBean.STATE_SUBSUCC;
+
+				try {
+					if (sendrst.length() < 4) {
+						state = Integer.parseInt(sendrst);
+
+					}
+					ss.setState(state);
+					ss.setStatcode(sendrst);
+					if (state > 0)
+						succCount++;
+					//
+					// if (Integer.parseInt(sendRst) <= 0) {
+					// ss.setState(Integer.parseInt(sendRst));
+					// } else {
+					// ss.setState(SMSSendBean.STATE_SUBSUCC);
+					// ss.setStatcode(sendRst);
+					// succCount++;
+					// }
+
+				} catch (Exception e) {
+					// －6:keyWords
+					state = -6;
+					e.printStackTrace();
+					logger.error(e);
+				}
+
 			} catch (Exception e) {
 				e.printStackTrace();
 				logger.error(e);
-				sendRst = "";
+				// sendrst = "";
 			}
 
-			// TODO 测试使用，发布时改为上面的语句
-			// long sendRst = sendSms.sendTest(msg);
-			// if (batchNumber>0)
-			// { 不论返回批次号还是失败码，都更新，
-			ss.setSendtime(new Timestamp(System.currentTimeMillis()));
-
-			if (Integer.parseInt(sendRst) <= 0) {
-				ss.setState(Integer.parseInt(sendRst));
-			} else {
-				ss.setState(SMSSendBean.STATE_SUBSUCC);
-				ss.setStatcode(sendRst);
-				succCount++;
-			}
 		}
 		return succCount;
 	}
 
 	@Override
-	public void addNewListToTotal(List<SMSSendBean> total,
-			List<SMSSendBean> newList) {
+	public void addNewListToTotal(List<SMSSendBean> total, List<SMSSendBean> newList) {
 		if (null == newList)
 			return;
 
@@ -277,7 +308,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 
 	private int[] insertSent(List<SMSSendBean> list) {
 		try {
-			// dao.setTable(config.getTableSend());
+			// dao.setTable(config.getTableSent());
 			return dao.insSentRec(list);
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -290,6 +321,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 	public void setConfig(Config config) {
 		this.config = config;
 		dao.setTable(config.getTableSend());
+		dao.setTableSent(config.getTableSent());
 
 	}
 
@@ -398,17 +430,14 @@ public class SMSSendServiceImpl implements SMSSendService {
 		SMSSendBean ss = null;
 		int count = 0;
 		StringBuilder sb = new StringBuilder();
-		for (Iterator<SMSSendBean> it = list.iterator(); it.hasNext()
-				&& count++ < config.getPackMax();) {
+		for (Iterator<SMSSendBean> it = list.iterator(); it.hasNext() && count++ < config.getPackMax();) {
 			ss = it.next();
 
-			sb.append(ss.getPhone()).append("|!|").append(ss.getContent())
-					.append("|^|");
+			sb.append(ss.getPhone()).append("|!|").append(ss.getContent()).append("|^|");
 
 			// it.remove();
 		}
-		System.out.println(" list.size()=" + list.size() + ", sb: "
-				+ sb.toString());
+		System.out.println(" list.size()=" + list.size() + ", sb: " + sb.toString());
 
 		sb.delete(sb.length() - 3, sb.length());
 		return sb.toString();
@@ -432,24 +461,32 @@ public class SMSSendServiceImpl implements SMSSendService {
 		try {
 			while (list.size() > 0) {
 
-				List<SMSSendBean> oneList = getOneYunXinSmsPack(list,
-						notFitList);
+				List<SMSSendBean> oneList = getOneYunXinSmsPack(list, notFitList);
 
 				if (null == oneList)
 					break;
 
-				String sendrst = sendSms.send(packYunXinSms(oneList),
-						config.getCmdSend());
-				logger.info("sending yunxin sms, result: " + sendrst);
+				String sendrst = sendSms.send(packYunXinSms(oneList), config.getCmdSend());
+				logger.info("sending yunxin sms:  result: " + sendrst);
 				// TODO String sendrst =
 				// sendSms.sendTest(packYunXinSms(oneList));
 
 				int state = SMSSendBean.STATE_SUBSUCC;
 
+				//BigInteger bg = null;
 				try {
-					if (Integer.parseInt(sendrst) < 0) {
+
+					if (sendrst.length() < 4) {
 						state = Integer.parseInt(sendrst);
+					} else if (sendrst.contains(":")) {
+						state = -6;
 					}
+
+					// bg = new BigInteger(sendrst);
+					// if(bg.longValue()<0) {
+					// if (Integer.parseInt(sendrst) < 0) {
+					// state = Integer.parseInt(sendrst);
+					// }
 				} catch (Exception e) {
 					// －6:keyWords
 					state = -6;
@@ -485,16 +522,22 @@ public class SMSSendServiceImpl implements SMSSendService {
 			ssp.setMsg(getOneYunXinPackStr(notFitList));
 
 			try {
-				String sendrst = sendSms
-						.sendPack(ssp, config.getCmdSendIndiv());
-				logger.info("sending yunxin individual, result: " + sendrst);
+				String sendrst = sendSms.sendPack(ssp, config.getCmdSendIndiv());
+				logger.info("sending yunxin individual, " + ssp.getMsg() + " result: " + sendrst);
 
 				int state = SMSSendBean.STATE_SUBSUCC;
 
 				try {
-					if (Integer.parseInt(sendrst) < 0) {
+
+					if (sendrst.length() < 4) {
 						state = Integer.parseInt(sendrst);
+					} else if (sendrst.contains(":")) {
+						state = -6;
 					}
+
+					// if (Integer.parseInt(sendrst) < 0) {
+					// state = Integer.parseInt(sendrst);
+					// }
 				} catch (Exception e) {
 					// －6:keyWords
 					state = -6;
@@ -554,7 +597,6 @@ public class SMSSendServiceImpl implements SMSSendService {
 		// logger.error(e);
 		// }
 		// }
-
 	}
 
 	/**
@@ -589,8 +631,7 @@ public class SMSSendServiceImpl implements SMSSendService {
 	 *            ，数量不够的，做为个性化的，引用返回
 	 * @return
 	 */
-	private List<SMSSendBean> getOneYunXinSmsPack(List<SMSSendBean> list,
-			List<SMSSendBean> notFitList) {
+	private List<SMSSendBean> getOneYunXinSmsPack(List<SMSSendBean> list, List<SMSSendBean> notFitList) {
 
 		if (null == list || 0 == list.size())
 			return null;
@@ -655,20 +696,18 @@ public class SMSSendServiceImpl implements SMSSendService {
 		int[] a = insertSent(sentList);
 
 		int rst = 0;
-		if (null != a)  {
+		if (null != a) {
 			for (int i = 0; i < a.length; i++)
 				rst += a[i];
 		}
-		logger.info("  insert sent record : " + rst + " ，Cost time: "
-				+ (System.currentTimeMillis() - start) + " ms\n");
+		logger.info("  insert sent record: " + rst + ", Cost time: " + (System.currentTimeMillis() - start) + " ms\n");
 
 		start = System.currentTimeMillis();
 		a = deleteSent(sentList);
 		rst = 0;
 		for (int i = 0; i < a.length; i++)
 			rst += a[i];
-		logger.info("  delete sent record : " + rst + " ，Cost time: "
-				+ (System.currentTimeMillis() - start) + " ms\n");
+		logger.info("  delete sent record: " + rst + ", Cost time: " + (System.currentTimeMillis() - start) + " ms\n");
 
 		return rst;
 	}
