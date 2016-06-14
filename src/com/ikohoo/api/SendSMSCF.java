@@ -59,8 +59,9 @@ public class SendSMSCF {
 		if (null == msg)
 			return "";
 		url = config.getUrl() + cmd;// "SendMsg";
-		System.out.println("url: " + url);
+		System.out.println("url: " + url + "; user: " + config.getUserCode() + "; pass: " + config.getUserPass());
 		System.out.println("msg: " + msg);
+		
 
 		String str = "";
 		try {

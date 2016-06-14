@@ -184,7 +184,7 @@ public class SMSMain {
 			if (null == timerDbTest)
 				timerDbTest = new Timer();
 
-			timerDbTest.schedule(new DBTester(config, true), 0, config.getDbTestInterval());
+			timerDbTest.schedule(new DBTester(config, false), 0, config.getDbTestInterval());
 			
 			//Timer t = new Timer();
 			//t.schedule(new DBTester(config, true), 0, config.getDbTestInterval());
