@@ -21,8 +21,7 @@ public class SMSSendDaoImpl implements SMSSendDao {
 
 	@Override
 	public List<SMSSendBean> getNewSMS(int count) throws SQLException {
-		String sql = " SELECT * FROM " + table + " WHERE state=0 LIMIT "
-				+ count;
+		String sql = " SELECT TOP " + count+ " * FROM " + table + " WHERE state=0  ";
 
 		try {
 			QueryRunner runner = new QueryRunner(DaoUtils.getSource());
@@ -40,8 +39,8 @@ public class SMSSendDaoImpl implements SMSSendDao {
 	@Override
 	public List<SMSSendBean> getNewSMS(int count, int mod, int remainder)
 			throws SQLException {
-		String sql = " SELECT * FROM " + table + "  WHERE state=0 and id%?=? LIMIT "
-				+ count;
+		String sql = " SELECT TOP " + count+ "  * FROM " + table + "  WHERE state=0 and id%?=?  "
+				;
 
 		try {
 			QueryRunner runner = new QueryRunner(DaoUtils.getSource());
@@ -58,7 +57,7 @@ public class SMSSendDaoImpl implements SMSSendDao {
 
 	@Override
 	public int insert(SMSSendBean record) throws SQLException {
-		String sql = " INSERT INTO " + table + "  VALUES(null, ?,?,?,?,?) ";
+		String sql = " INSERT INTO " + table + " (phone, content, intime, state, sendtime) VALUES(?,?,?,?,?) ";
 		try {
 			QueryRunner runner = new QueryRunner(DaoUtils.getSource());
 			return runner
@@ -77,7 +76,7 @@ public class SMSSendDaoImpl implements SMSSendDao {
 	@Override
 	public int[] insert(List<SMSSendBean> list) throws SQLException {
 		// id, phone,statcode,statmsg,smsid,sendtime
-		String sql = " INSERT INTO " + table + "  VALUES(null, ?, ?, ?, ?, null, null) ";
+		String sql = " INSERT INTO " + table + " (phone, content, intime, state) VALUES(?, ?, ?, ?) ";
 		try {
 			QueryRunner runner = new QueryRunner(DaoUtils.getSource());
 			Object[][] params = new Object[list.size()][4];
@@ -153,7 +152,7 @@ public class SMSSendDaoImpl implements SMSSendDao {
 	@Override
 	public int[] insSentRec(List<SMSSendBean> list) throws SQLException {
 		// id, phone, content, intime, state, sendtime, statcode
-		String sql = " INSERT INTO "+ tableSent +" VALUES(null, ?, ?, ?, ?, ?, ?) ";
+		String sql = " INSERT INTO "+ tableSent +" (phone, content, intime, state, sendtime, statcode) VALUES( ?, ?, ?, ?, ?, ?) ";
 		//System.out.println("insert sql: " + sql);
 		try {
 			QueryRunner runner = new QueryRunner(DaoUtils.getSource());

@@ -10,14 +10,14 @@ import com.ikohoo.domain.SMSRecvBean;
 import com.ikohoo.util.DaoUtils;
 
 public class SMSRecvDaoImpl implements SMSRecvDao {
-	private String table = "rept";
+	private String table = "receivesms_sf";
 
 	//static Logger logger = Logger.getLogger(SMSRecvDaoImpl.class);
 
 	@Override
 	public int[] insert(List<SMSRecvBean> list) throws SQLException {
 								// id, phone,content,sendtime, systime
-		String sql = " INSERT INTO   " + table + "  VALUES (null, ?, ?, ?, ?) ";
+		String sql = " INSERT INTO   " + table + " (phone, content, sendtime, systime) VALUES (?, ?, ?, ?) ";
 		try {
 			QueryRunner runner = new QueryRunner(DaoUtils.getSource());
 			Object[][] params = new Object[list.size()][4];

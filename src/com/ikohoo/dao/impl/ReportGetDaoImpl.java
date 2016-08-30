@@ -18,7 +18,7 @@ public class ReportGetDaoImpl implements ReportGetDao {
 	@Override
 	public int[] insert(List<ReportGetBean> list) throws SQLException {
 		// id, phone,statcode,statmsg,smsid,sendtime
-		String sql = " INSERT INTO   " + table + "  VALUES (null, ?, ?, ?, ?, ?) ";
+		String sql = " INSERT INTO   " + table + " (phone, statcode, statmsg, smsid, sendtime)  VALUES (?, ?, ?, ?, ?) ";
 		try {
 			QueryRunner runner = new QueryRunner(DaoUtils.getSource());
 			Object[][] params = new Object[list.size()][5];
