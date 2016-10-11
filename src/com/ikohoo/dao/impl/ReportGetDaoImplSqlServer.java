@@ -9,7 +9,7 @@ import com.ikohoo.dao.ReportGetDao;
 import com.ikohoo.domain.ReportGetBean;
 import com.ikohoo.util.DaoUtils;
 
-public class ReportGetDaoImpl implements ReportGetDao {
+public class ReportGetDaoImplSqlServer implements ReportGetDao {
 
 	private String table="rept";
 
