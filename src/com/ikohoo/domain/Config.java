@@ -15,6 +15,10 @@ public class Config {
 	private int packMin;
 	private int sendMax;
 	
+	private int isSign;
+	private String sign;
+	private int isSignHead;
+	
 	private int dbTestInterval;
 	private int dbTestCount;
 	private long dbTestPhone;
@@ -309,6 +313,36 @@ public class Config {
 
 	public void setDbTestPhone(long dbTestPhone) {
 		this.dbTestPhone = dbTestPhone;
+	}
+
+
+	public String getSign() {
+		return sign;
+	}
+
+
+	public void setSign(String sign) {
+		this.sign = sign;
+	}
+
+
+	public int getIsSign() {
+		return isSign;
+	}
+
+
+	public void setIsSign(int isSign) {
+		this.isSign = isSign;
+	}
+
+
+	public int getIsSignHead() {
+		return isSignHead;
+	}
+
+
+	public void setIsSignHead(int isSignHead) {
+		this.isSignHead = isSignHead;
 	}
 
 }

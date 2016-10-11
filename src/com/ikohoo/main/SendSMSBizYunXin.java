@@ -66,20 +66,28 @@ public class SendSMSBizYunXin extends TimerTask{
 			int pos=0;
 			String signName="";
 			
+			
 			for (SMSSendBean ssb: list) {
 				//System.out.println("rep--cont: " + ssb.getContent().replace(">", "-") );
+				// 网聚宝需求，前置提交转后置，并把>转为》
 				ssb.setContent(ssb.getContent().replace(">", "》")
 						.replace("\\u005c", "、"));
 				
-				if (ssb.getContent().startsWith("【")) {
-					pos=ssb.getContent().indexOf("】");
-					signName = ssb.getContent().substring(0, pos+1);
-
-					ssb.setContent((ssb.getContent().substring(pos+1, 
-							ssb.getContent().length())+signName)
-							
-							);
-				}
+				// 有的用户懒的签名都不想带，X
+				if (0==config.getIsSign())
+					ssb.setContent(ssb.getContent()+config.getSign());
+				
+				// 前置簽名轉為后置
+				if (1==config.getIsSignHead())
+					if (ssb.getContent().startsWith("【")) {
+						pos=ssb.getContent().indexOf("】");
+						signName = ssb.getContent().substring(0, pos+1);
+	
+						ssb.setContent((ssb.getContent().substring(pos+1, 
+								ssb.getContent().length())+signName)
+								
+								);
+					}
 				//System.out.println("sign name invert: " + ssb.toString());
 			}
 
@@ -94,8 +102,11 @@ public class SendSMSBizYunXin extends TimerTask{
 
 			start = System.currentTimeMillis();
 			
-			//int num = service.dealSentSMSYunXin(list);
-			int num = service.dealSentSMS(list);
+			// 删除原记录，插入新表
+			int num = service.dealSentSMSYunXin(list);
+			
+			// 更新原记录
+			//int num = service.dealSentSMS(list);
 
 			if (list.size() != 0) {
 				logAndPrint("# [ "+ remainder +" ]    deal left list: ");

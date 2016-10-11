@@ -18,6 +18,7 @@ public class SMSMain {
 	Timer timerGetRecv = new Timer();
 	Timer timerGetReport = new Timer();
 	
+	
 	Timer timerDbTest = new Timer();
 
 	/**

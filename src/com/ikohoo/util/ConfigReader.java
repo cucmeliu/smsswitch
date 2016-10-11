@@ -61,6 +61,13 @@ public class ConfigReader {
 			config.setSendMax(Integer.parseInt(prop.getProperty("send-max",
 					500 + "")));
 			
+			config.setIsSign(Integer.parseInt(prop.getProperty("is-signed",
+					1+"")));
+			config.setSign(prop.getProperty("add-sign", "【測試】"));
+			config.setIsSignHead(Integer.parseInt(prop.getProperty("is-sign-head", 
+					0+"")));
+			
+			
 			config.setDbTestInterval(Integer.parseInt(prop.getProperty("dbTest-interval", 3000 + "")));
 			config.setDbTestCount(Integer.parseInt(prop.getProperty("dbTest-count", 500 + "")));
 			config.setDbTestPhone(Long.parseLong(prop.getProperty("dbTest-phone", "130000000")));

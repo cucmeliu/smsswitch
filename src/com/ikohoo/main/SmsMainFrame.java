@@ -8,6 +8,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 import com.ikohoo.domain.Config;
 import com.ikohoo.test.DBTester;
@@ -41,6 +43,44 @@ public class SmsMainFrame {
 	// JCheckBox cbShowlog = new JCheckBox("显示日志");
 
 	public static JTextArea txtLog = new JTextArea();
+	{
+		txtLog.getDocument().addDocumentListener(new DocumentListener() {
+			
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				// TODO Auto-generated method stub
+				SwingUtilities.invokeLater(new Runnable(){
+
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+						if (txtLog.getLineCount() >= 1000) {
+					        int end = 0;
+					        try {
+					         end = txtLog.getLineEndOffset(100);
+					        } catch (Exception e) {
+					        }
+					        txtLog.replaceRange("", 0, end);
+					       }
+						txtLog.setCaretPosition(txtLog.getText().length());
+					}
+					
+				});
+			}
+			
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
 
 	SMSMain smsMain = new SMSMain();
 	SendSMSTester test = new SendSMSTester();
@@ -53,7 +93,7 @@ public class SmsMainFrame {
 
 		// pnlButtons = new JPanel();
 		frame.add(pnlTop, "North");
-		frame.add(pnlBottom, "South");
+		//frame.add(pnlBottom, "South");
 
 		// btStart = new JButton("Start");
 		btStart.addActionListener(new ActionListener() {
@@ -119,7 +159,11 @@ public class SmsMainFrame {
 		pnlTop.add(cbSend);
 		pnlTop.add(cbRecv);
 		pnlTop.add(cbRept);
-		pnlTop.add(cbDbTest);
+		
+		
+		Config config = ConfigReader.loadConfig();
+		if (0!=config.getDbTestCount())
+			pnlTop.add(cbDbTest);
 		
 		btSendOnce.addActionListener(new ActionListener() {
 
@@ -134,7 +178,7 @@ public class SmsMainFrame {
 				}
 			}
 		});
-		pnlTop.add(btSendOnce);
+		//pnlTop.add(btSendOnce);
 		
 
 		txtPhone.setText("13000000000");
