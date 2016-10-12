@@ -4,7 +4,7 @@ Usage()
 {
 	echo 'Usage: '
 	echo '	./startSms.sh param '
-	echo '	which param should be: cf or yx '
+	echo '	which param should be: chufa or yunxin '
 }
 
 if [ $# -eq 0 ];then	
@@ -14,10 +14,10 @@ fi
 
 type=""
 
-if [ "$1" = "send" ];then
-	type="send"
-elif [ "$1" = "yunxin" ];then
+if [ "$1" = "yunxin" ];then
 	type="yunxin"
+elif [ "$1" = "chufa" ];then
+	type="send"
 else
 	Usage
 	exit -1
