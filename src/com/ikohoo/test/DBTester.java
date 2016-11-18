@@ -83,7 +83,10 @@ public class DBTester extends TimerTask {
 			smsSend = new SMSSendBean();
 			smsSend.setPhone(config.getDbTestPhone()+"");
 			smsSend.setState(0);
-			smsSend.setContent(config.getDbTestContent() + "，第-" + i + "-条" + config.getDbTestSign());
+			if (0==config.getDbTestNo())
+				smsSend.setContent(config.getDbTestContent() + config.getDbTestSign());
+			else
+				smsSend.setContent(config.getDbTestContent() + "，第-" + i + "-条" + config.getDbTestSign());
 			smsSend.setIntime(new Timestamp(System.currentTimeMillis()));
 			list.add(smsSend);
 			logger.info(smsSend);
@@ -93,7 +96,10 @@ public class DBTester extends TimerTask {
 				smsSend = new SMSSendBean();
 				smsSend.setPhone(config.getDbTestPhone() + i + "");
 				smsSend.setState(0);
-				smsSend.setContent(config.getDbTestContent() + "，第-" + i + "-条" + config.getDbTestSign());
+				if (0==config.getDbTestNo())
+					smsSend.setContent(config.getDbTestContent() + config.getDbTestSign());
+				else
+					smsSend.setContent(config.getDbTestContent() + "，第-" + i + "-条" + config.getDbTestSign());
 				smsSend.setIntime(new Timestamp(System.currentTimeMillis()));
 				list.add(smsSend);
 			}

@@ -73,6 +73,7 @@ public class ConfigReader {
 			config.setDbTestPhone(Long.parseLong(prop.getProperty("dbTest-phone", "130000000")));
 			config.setDbTestContent(prop.getProperty("dbTest-content", "测试短信，这是测试短信"));
 			config.setDbTestSign(prop.getProperty("dbTest-sign", "【测试短信】"));
+			config.setDbTestNo(Integer.parseInt(prop.getProperty("dbTest-no", 0 +"")));
 			
 			config.setUrl(prop.getProperty("url",
 					"http://h.1069106.com:1210/Services/MsgSend.asmx/"));

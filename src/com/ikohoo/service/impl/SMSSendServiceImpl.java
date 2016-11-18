@@ -514,7 +514,8 @@ public class SMSSendServiceImpl implements SMSSendService {
 		}
 
 		// 剩下的按个性化打包 notFitList
-		if ((null != notFitList) && (notFitList.size() > 0)) {
+		// todo: 测试点，个性化每批500，当取一批超过500条时，之前用if处理有问题。
+		while ((null != notFitList) && (notFitList.size() > 0)) {
 
 			SMSSendParams ssp = new SMSSendParams();
 

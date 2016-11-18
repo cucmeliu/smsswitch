@@ -24,6 +24,7 @@ public class Config {
 	private long dbTestPhone;
 	private String dbTestContent;
 	private String dbTestSign;
+	private int dbTestNo;
 
 	private String tableSend;
 	private String tableRecv;
@@ -343,6 +344,16 @@ public class Config {
 
 	public void setIsSignHead(int isSignHead) {
 		this.isSignHead = isSignHead;
+	}
+
+
+	public int getDbTestNo() {
+		return dbTestNo;
+	}
+
+
+	public void setDbTestNo(int dbTestNo) {
+		this.dbTestNo = dbTestNo;
 	}
 
 }
